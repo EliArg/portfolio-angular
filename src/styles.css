@@ -1,1 +1,46 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    background-color: lightgray;
+    font-size: 100%;
+ }
+h1 {
+    text-align: center;
+    font-family: 'Space Mono', Courier, monospace;
+    font-size: 1.5em;
+ }
+h2 {
+    font-family: 'Space Mono', Courier, monospace;
+    font-size: 1.5em;
+ }
+p {
+    margin: 0%;
+ }
+ul {
+    padding: 0%;
+    list-style-type: none;
+ }
+.seccion {
+    background-color: azure;
+    padding: 0%;
+    border-radius: 13px;   
+    border-color: teal;
+    border-style: solid;
+    margin-bottom: 5px;
+}
+.seccion-titulo {
+    background-color: teal;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color:azure;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 10px;
+}
+.seccion-img {
+    width: 75px;
+    height: 75px;
+    background-color: white;
+}
+.fechas {
+    font-size: 0.8em;
+    font-style: italic;
+}
