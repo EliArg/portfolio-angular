@@ -3,10 +3,24 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './componentes/header/header.component';
+import { InformacionComponent } from './componentes/informacion/informacion.component';
+import { ExperienciaComponent } from './componentes/experiencia/experiencia.component';
+import { EducacionComponent } from './componentes/educacion/educacion.component';
+import { HabilidadesComponent } from './componentes/habilidades/habilidades.component';
+import { PortafolioComponent } from './componentes/portafolio/portafolio.component';
+import { FooterComponent } from './componentes/footer/footer.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    InformacionComponent,
+    ExperienciaComponent,
+    EducacionComponent,
+    HabilidadesComponent,
+    PortafolioComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
