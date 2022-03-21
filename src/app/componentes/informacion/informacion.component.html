@@ -7,8 +7,46 @@
   </div>
   <div class="col informacion-2 p-3">
     <h2 id="titulo">Full Stack Developer Jr.</h2>
-    <button type="button" class="bi-pencil-fill editar" style="float: right;"></button>
+    <button type="button" class="bi-pencil-fill boton-1" style="float: right;" data-bs-toggle="modal" data-bs-target="#editarInformacion"></button>
     <p id="sobremi">Sobre mí</p>
     </div>
   </div>
+
+<!--Modal-->
+<div class="modal fade" id="editarInformacion" tabindex="-1" aria-labelledby="editarInformacionT" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editarInformacionT">Editar información</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-2">
+            <label for="editarBanner" class="form-label">Banner</label>
+            <input class="form-control form-control-sm" type="file" id="editarBanner">
+          </div>
+          <div class="mb-2">
+            <label for="editarAvatar" class="form-label">Imagen de perfil</label>
+            <input class="form-control form-control-sm" type="file" id="editarAvatar">
+          </div>
+          <div class="mb-2">
+            <label for="editarNombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control form-control-sm" id="editarNombre">
+          </div>
+          <div class="mb-2">
+            <label for="editarTitulo" class="form-label">Título</label>
+            <input type="text" class="form-control form-control-sm" id="editarTitulo">
+          </div>
+          <div class="mb-2">
+            <label for="editarSobreMi" class="form-label">Sobre mí</label>
+            <textarea type="text" class="form-control form-control-sm" rows="3" id="editarSobreMi"></textarea>
+          </div>
+          <button type="button" class="btn btn-info mt-2">Guardar</button>
+        </form>
+      </div>
+    </div>
   </div>
+</div>
+
+</div>

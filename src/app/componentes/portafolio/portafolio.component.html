@@ -1,39 +1,62 @@
 <div class="seccion container-lg">
-    <div class="seccion-titulo"><h2>Proyectos</h2></div>
+    <div class="seccion-titulo">
+      <button type="button" class="boton-1 boton-2 bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#editarPortafolio"></button>
+      <h2>Proyectos</h2></div>
     <ul class="d-flex flex-wrap align-items-center">
     <li class="seccion-proyecto p-3">
       <div class="card">
         <div class="card-body">
           <div class="btn-group-vertical" style="float: right;">
-            <button type="button" class="editar bi-pencil-fill"></button>
-            <button type="button" class="borrar bi-x-circle-fill"></button>
+            <button type="button" class="boton-1 bi-pencil-fill" data-bs-toggle="modal" data-bs-target="#editarPortafolio"></button>
+            <button type="button" class="boton-1 bi-x-circle-fill"></button>
           </div>
           <p class="card-title"><b>Nombre Proyecto</b></p>
-          <p class="card-subtitle mb-2 fechas">Fecha</p>
+          <p class="card-subtitle mb-2 fechas text-muted">Fecha</p>
           <p class="card-text mb-2">Descripción</p>
           <div>
-            <button type="button" class="btn btn-info me-2">Ver</button>
-            <button type="button" class="btn btn-info">Código fuente</button>
-          </div>
-          </div>
-      </div>
-    </li>
-    <li class="seccion-proyecto p-3">
-      <div class="card">
-        <div class="card-body">
-          <div class="btn-group-vertical" style="float: right;">
-            <button type="button" class="editar bi-pencil-fill"></button>
-            <button type="button" class="borrar bi-x-circle-fill"></button>
-          </div><p class="card-title"><b>Nombre Proyecto</b></p>
-          <p class="card-subtitle mb-2 fechas">Fecha</p>
-          <p class="card-text mb-2">Descripción</p>
-          <div>
-            <button type="button" class="btn btn-info me-2">Ver</button>
-            <button type="button" class="btn btn-info">Código fuente</button>
+            <a type="button" class="btn btn-info me-2" href="">Ver</a>
+            <a type="button" class="btn btn-info" href="">Código fuente</a>
           </div>
           </div>
       </div>
     </li>
     </ul>
+
+  <!--Modal-->
+  <div class="modal fade" id="editarPortafolio" tabindex="-1" aria-labelledby="editarPortafolioT" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editarPortafolioT">Editar proyectos</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-2">
+              <label for="editarNombre" class="form-label">Nombre</label>
+              <input type="text" class="form-control form-control-sm" id="editarNombre">
+            </div>
+            <div class="mb-2">
+              <label for="editarFFin" class="form-label">Fecha de finalización</label>
+              <input type="date" class="form-control form-control-sm" id="editarFFin">
+            </div>
+            <div class="mb-2">
+              <label for="editarDescripcion" class="form-label">Descripción</label>
+              <textarea type="text" class="form-control form-control-sm" rows="3" id="editarDescripcion"></textarea>
+            </div>
+            <div class="mb-2">
+              <label for="editarLink" class="form-label">Link</label>
+              <input type="text" class="form-control form-control-sm" id="editarLink">
+            </div>
+            <div class="mb-2">
+              <label for="editarFuente" class="form-label">Código fuente</label>
+              <input type="text" class="form-control form-control-sm" id="editarFuente">
+            </div>
+            <button type="button" class="btn btn-info mt-2">Guardar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  
   </div>
   

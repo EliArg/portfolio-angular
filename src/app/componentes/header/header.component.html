@@ -1,16 +1,77 @@
 <header class="container-lg d-flex align-items-center justify-content-center">
     <div class="col">
-      <img src="assets/img/APcolor.png" height="60">
+      <img src="assets/img/APcolor.png" style="height: 3rem;">
     </div>
-    <div class="redes me-2">
-      <a href="https://github.com/EliArg"><i class="bi-github"></i></a>
+    <div class="redes d-flex me-2">
+      <button type="button" class="boton-1 bi-plus-circle-fill me-2" data-bs-toggle="modal" data-bs-target="#editarRedes"></button>
+      <div><a href="https://github.com/EliArg"><i class="bi-github"></i></a>
       <div class="btn-group-vertical">
-        <button type="button" class="editar bi-pencil-fill"></button>
-        <button type="button" class="borrar bi-x-circle-fill"></button>
+        <button type="button" class="boton-1 bi-pencil-fill" data-bs-toggle="modal" data-bs-target="#editarRedes"></button>
+        <button type="button" class="boton-1 bi-x-circle-fill" ></button>
       </div>
     </div>
+    </div>
   <div>
-    <button type="button" class="btn btn-info">Iniciar sesión</button>
+    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#inicioSesion">Iniciar sesión</button>
     <button type="button" class="btn btn-info">Salir</button>
   </div>
-    </header>
+  
+<!--Modal de redes-->
+<div class="modal fade" id="editarRedes" tabindex="-1" aria-labelledby="editarRedesT" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editarRedesT">Editar redes sociales</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-2">
+            <label for="nombreRed" class="form-label">Nombre</label>
+            <select class="form-select form-select-sm" id="nombreRed">
+              <option selected></option>
+              <option value="facebook">Facebook</option>
+              <option value="github">Github</option>
+              <option value="google">Google</option>
+              <option value="instagram">Instagram</option>
+              <option value="linkedin">LinkedIn</option>
+              <option value="stack-overflow">Stack Overflow</option>
+              <option value="twitter">Twitter</option>
+            </select>
+          </div>
+          <div class="mb-2">
+            <label for="linkRed" class="form-label">Link</label>
+            <input type="text" class="form-control form-control-sm" id="linkRed">
+          </div>
+          <button type="button" class="btn btn-info mt-2">Guardar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Modal de inicio de sesión-->
+<div class="modal fade" id="inicioSesion" tabindex="-1" aria-labelledby="inicioSesionT" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="inicioSesionT">Iniciar sesión</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-2">
+            <label for="nombreUsuario" class="form-label">Nombre de usuario</label>
+            <input type="text" class="form-control form-control-sm" id="nombreUsuario">
+          </div>
+          <div class="mb-2">
+            <label for="passwordUsuario" class="form-label">Contraseña</label>
+            <input type="password" class="form-control form-control-sm" id="passwordUsuario">
+          </div>
+          <button type="button" class="btn btn-info mt-2">Entrar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</header>

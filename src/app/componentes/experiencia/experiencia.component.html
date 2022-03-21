@@ -1,27 +1,56 @@
 <div class="seccion container-lg">
-    <div class="seccion-titulo"><h2>Experiencia</h2></div>
+    <div class="seccion-titulo">
+      <button type="button" class="boton-1 boton-2 bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#editarExperiencia"></button>
+      <h2>Experiencia</h2></div>
     <ul>
     <li class="seccion-experiencia d-flex align-items-center p-3">
       <img class="seccion-img img-experiencia me-2">
       <div class="col"><p><b>Trabajo</b> en Empresa</p>
-      <p class="fechas">Fechas</p>
+      <p class="fechas text-muted">Fechas</p>
       <p>Descripción</p>
     </div>
     <div class="btn-group-vertical">
-      <button type="button" class="editar bi-pencil-fill"></button>
-      <button type="button" class="borrar bi-x-circle-fill"></button>
+      <button type="button" class="boton-1 bi-pencil-fill" data-bs-toggle="modal" data-bs-target="#editarExperiencia"></button>
+      <button type="button" class="boton-1 bi-x-circle-fill"></button>
     </div>
   </li>
-  <li class="seccion-experiencia d-flex align-items-center p-3">
-    <img class="seccion-img img-experiencia me-2">
-    <div class="col"><p><b>Trabajo</b> en Empresa</p>
-    <p class="fechas">Fechas</p>
-    <p>Descripción</p>
-  </div>
-  <div class="btn-group-vertical">
-    <button type="button" class="editar bi-pencil-fill"></button>
-    <button type="button" class="borrar bi-x-circle-fill"></button>
-  </div></li>
   </ul>
+
+  <!--Modal-->
+<div class="modal fade" id="editarExperiencia" tabindex="-1" aria-labelledby="editarExperienciaT" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editarExperienciaT">Editar experiencia</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-2">
+            <label for="editarTrabajo" class="form-label">Trabajo</label>
+            <input type="text" class="form-control form-control-sm" id="editarTrabajo">
+          </div>
+          <div class="mb-2">
+            <label for="editarEmpresa" class="form-label">Empresa</label>
+            <input type="text" class="form-control form-control-sm" id="editarEmpresa">
+          </div>
+          <div class="mb-2">
+            <label for="editarFInicio" class="form-label">Fecha de inicio</label>
+            <input type="month" class="form-control form-control-sm" id="editarFInicio">
+          </div>
+          <div class="mb-2">
+            <label for="editarFFin" class="form-label">Fecha de finalización</label>
+            <input type="month" class="form-control form-control-sm" id="editarFFin">
+          </div>
+          <div class="mb-2">
+            <label for="editarDescripcion" class="form-label">Descripción</label>
+            <textarea type="text" class="form-control form-control-sm" rows="3" id="editarDescripcion"></textarea>
+          </div>
+          <button type="button" class="btn btn-info mt-2">Guardar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
   </div>
   
