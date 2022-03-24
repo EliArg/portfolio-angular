@@ -1,20 +1,21 @@
-<header class="container-lg d-flex align-items-center justify-content-center">
+<header class="container-lg">
+  <nav class="d-flex align-items-center">
     <div class="col">
       <img src="assets/img/APcolor.png" style="height: 3rem;">
     </div>
+      <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#inicioSesion">Iniciar sesión</button>
+      <button type="button" class="btn btn-info">Salir</button>
+  </nav>  
+  <div class="d-flex justify-content-end">
+    <button type="button" class="boton-1 bi-plus-circle-fill me-2" data-bs-toggle="modal" data-bs-target="#editarRedes"></button>
     <div class="redes d-flex me-2">
-      <button type="button" class="boton-1 bi-plus-circle-fill me-2" data-bs-toggle="modal" data-bs-target="#editarRedes"></button>
-      <div><a href="https://github.com/EliArg"><i class="bi-github"></i></a>
+      <a href="https://github.com/EliArg"><i class="bi-github"></i></a>
       <div class="btn-group-vertical">
         <button type="button" class="boton-1 bi-pencil-fill" data-bs-toggle="modal" data-bs-target="#editarRedes"></button>
         <button type="button" class="boton-1 bi-x-circle-fill" ></button>
       </div>
     </div>
-    </div>
-  <div>
-    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#inicioSesion">Iniciar sesión</button>
-    <button type="button" class="btn btn-info">Salir</button>
-  </div>
+</div>
   
 <!--Modal de redes-->
 <div class="modal fade" id="editarRedes" tabindex="-1" aria-labelledby="editarRedesT" aria-hidden="true">
