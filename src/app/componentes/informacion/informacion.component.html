@@ -1,14 +1,14 @@
 <div class="seccion informacion container-lg">
-    <img id="banner" class="img-fluid" src="assets/img/banner.jpg">
+    <img id="banner" class="img-fluid" [src]="informacion.banner">
     <div class="d-flex flex-wrap justify-content-center">
       <div class="informacion-1 align-item-center justify-content-center p-3">
-    <img id="perfil" src="assets/img/avatar.png">
-    <h1 id="nombre">Nombre Apellido</h1>
+    <img id="avatar" [src]="informacion.avatar">
+    <h1 id="nombre">{{informacion.nombre}}</h1>
   </div>
   <div class="col informacion-2 p-3">
-    <h2 id="titulo">Full Stack Developer Jr.</h2>
+    <h2 id="titulo">{{informacion.titulo}}</h2>
     <button type="button" class="bi-pencil-fill boton-1" style="float: right;" data-bs-toggle="modal" data-bs-target="#editarInformacion"></button>
-    <p id="sobremi">Sobre mí</p>
+    <p id="sobremi">{{informacion.sobreMi}}</p>
     </div>
   </div>
 

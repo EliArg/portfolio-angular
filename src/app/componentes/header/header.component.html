@@ -8,13 +8,17 @@
   </nav>  
   <div class="d-flex justify-content-end">
     <button type="button" class="boton-1 bi-plus-circle-fill me-2" data-bs-toggle="modal" data-bs-target="#editarRedes"></button>
-    <div class="redes d-flex me-2">
-      <a href="https://github.com/EliArg"><i class="bi-github"></i></a>
+    <ul>
+    <li *ngFor="let redes of redesList">
+    <div class="d-flex me-2">
+      <a [href]="redes.linkRed"><i class="bi-github"></i></a>
       <div class="btn-group-vertical">
         <button type="button" class="boton-1 bi-pencil-fill" data-bs-toggle="modal" data-bs-target="#editarRedes"></button>
         <button type="button" class="boton-1 bi-x-circle-fill" ></button>
       </div>
     </div>
+  </li>
+  </ul>
 </div>
   
 <!--Modal de redes-->

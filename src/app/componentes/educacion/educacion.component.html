@@ -3,15 +3,17 @@
       <button type="button" class="boton-1 boton-2 bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#editarEducacion"></button>
       <h2>Educación</h2></div>
     <ul>
-    <li class="seccion-educacion d-flex align-items-center p-3">
-      <img class="seccion-img img-educacion me-2">
-      <div class="col"><p><b>Curso</b> en Institución</p>
-        <p class="fechas text-muted">Fechas</p>
-        <p>Descripción</p>
+    <li *ngFor="let educacion of educacionList">
+      <div class="d-flex align-items-center p-3">
+      <img [src]="educacion.institucionL" class="seccion-img me-2">
+      <div class="col"><p><b>{{educacion.curso}}</b> en {{educacion.institucionN}}</p>
+        <p class="fechas text-muted">{{educacion.inicioEd}} - {{educacion.finEd}}</p>
+        <p>{{educacion.descripcionEd}}</p>
       </div>
       <div class="btn-group-vertical">
         <button type="button" class="boton-1 bi-pencil-fill" data-bs-toggle="modal" data-bs-target="#editarEducacion"></button>
         <button type="button" class="boton-1 bi-x-circle-fill"></button>
+      </div>
       </div>
     </li>
   </ul>
@@ -31,20 +33,24 @@
             <input type="text" class="form-control form-control-sm" id="editarCurso">
           </div>
           <div class="mb-2">
-            <label for="editarInstitucion" class="form-label">Institución</label>
-            <input type="text" class="form-control form-control-sm" id="editarInstitucion">
+            <label for="editarInstitucionN" class="form-label">Institución</label>
+            <input type="text" class="form-control form-control-sm" id="editarInstitucionN">
           </div>
           <div class="mb-2">
-            <label for="editarFInicio" class="form-label">Fecha de inicio</label>
-            <input type="month" class="form-control form-control-sm" id="editarFInicio">
+            <label for="editarInstitucionL" class="form-label">Institución</label>
+            <input type="text" class="form-control form-control-sm" id="editarInstitucionL">
           </div>
           <div class="mb-2">
-            <label for="editarFFin" class="form-label">Fecha de finalización</label>
-            <input type="month" class="form-control form-control-sm" id="editarFFin">
+            <label for="editarInicioEd" class="form-label">Fecha de inicio</label>
+            <input type="month" class="form-control form-control-sm" id="editarInicioEd">
           </div>
           <div class="mb-2">
-            <label for="editarDescripcion" class="form-label">Descripción</label>
-            <textarea type="text" class="form-control form-control-sm" rows="3" id="editarDescripcion"></textarea>
+            <label for="editarFinEd" class="form-label">Fecha de finalización</label>
+            <input type="month" class="form-control form-control-sm" id="editarFinEd">
+          </div>
+          <div class="mb-2">
+            <label for="editarDescripcionEd" class="form-label">Descripción</label>
+            <textarea type="text" class="form-control form-control-sm" rows="3" id="editarDescripcionEd"></textarea>
           </div>
           <button type="button" class="btn btn-info mt-2">Guardar</button>
         </form>

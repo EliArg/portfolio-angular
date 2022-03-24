@@ -1,0 +1,40 @@
+{   "informacion": {
+    "nombre": "Nombre Apellido",
+    "titulo": "Full Stack Developer Jr.",
+    "sobreMi": "Descripción",
+    "banner": "assets/img/banner.jpg",
+    "avatar": "assets/img/avatar.png"
+},
+    "redes": [{
+        "nombreRed": "github",
+        "linkRed": "https://github.com/EliArg"
+    }],
+    "experiencia": [{
+        "trabajo": "Trabajo",
+        "empresaN": "Empresa",
+        "empresaL": "assets/img/APcolor.png",
+        "inicioEx": "mes/año",
+        "finEx": "mes/año",
+        "descripcionEx": "Descripción"
+    }],
+    "educacion": [{
+        "curso": "Curso",
+        "institucionN": "Empresa",
+        "institucionL": "assets/img/APcolor.png",
+        "inicioEd": "mes/año",
+        "finEd": "mes/año",
+        "descripcionEd": "Descripción"
+    }],
+    "habilidades": [{
+        "skill": "Habilidad",
+        "nivel": "30"
+    }],
+    "proyectos": [{
+        "proyecto": "Proyecto",
+        "finPr": "mes/año",
+        "descripcionPr": "Descripción",
+        "link": "https://github.com/EliArg",
+        "fuente": "https://github.com/EliArg"
+    }]
+
+}

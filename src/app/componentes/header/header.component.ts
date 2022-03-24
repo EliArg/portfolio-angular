@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PortafolioapService } from 'src/app/servicios/portafolioap.service';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
-
+  redesList:any;
+  constructor(private datosPortafolio:PortafolioapService) { }
+  
   ngOnInit(): void {
+    this.datosPortafolio.obtenerDatos().subscribe(data =>{
+      this.redesList=data.redes;
+    })
   }
 
 }

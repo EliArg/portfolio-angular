@@ -3,16 +3,18 @@
       <button type="button" class="boton-1 boton-2 bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#editarExperiencia"></button>
       <h2>Experiencia</h2></div>
     <ul>
-    <li class="seccion-experiencia d-flex align-items-center p-3">
-      <img class="seccion-img img-experiencia me-2">
-      <div class="col"><p><b>Trabajo</b> en Empresa</p>
-      <p class="fechas text-muted">Fechas</p>
-      <p>Descripción</p>
+    <li *ngFor="let experiencia of experienciaList" >
+      <div class="d-flex align-items-center p-3">
+      <img [src]="experiencia.empresaL" class="seccion-img me-2">
+      <div class="col"><p><b>{{experiencia.trabajo}}</b> en {{experiencia.empresaN}}</p>
+      <p class="fechas text-muted">{{experiencia.inicioEx}} - {{experiencia.finEx}}</p>
+      <p>{{experiencia.descripcionEx}}</p>
     </div>
     <div class="btn-group-vertical">
       <button type="button" class="boton-1 bi-pencil-fill" data-bs-toggle="modal" data-bs-target="#editarExperiencia"></button>
       <button type="button" class="boton-1 bi-x-circle-fill"></button>
     </div>
+      </div>
   </li>
   </ul>
 
@@ -31,20 +33,24 @@
             <input type="text" class="form-control form-control-sm" id="editarTrabajo">
           </div>
           <div class="mb-2">
-            <label for="editarEmpresa" class="form-label">Empresa</label>
-            <input type="text" class="form-control form-control-sm" id="editarEmpresa">
+            <label for="editarEmpresaN" class="form-label">Empresa</label>
+            <input type="text" class="form-control form-control-sm" id="editarEmpresaN">
           </div>
           <div class="mb-2">
-            <label for="editarFInicio" class="form-label">Fecha de inicio</label>
-            <input type="month" class="form-control form-control-sm" id="editarFInicio">
+            <label for="editarEmpresaL" class="form-label">Empresa</label>
+            <input type="file" class="form-control form-control-sm" id="editarEmpresaL">
           </div>
           <div class="mb-2">
-            <label for="editarFFin" class="form-label">Fecha de finalización</label>
-            <input type="month" class="form-control form-control-sm" id="editarFFin">
+            <label for="editarInicioEx" class="form-label">Fecha de inicio</label>
+            <input type="month" class="form-control form-control-sm" id="editarInicioEx">
           </div>
           <div class="mb-2">
-            <label for="editarDescripcion" class="form-label">Descripción</label>
-            <textarea type="text" class="form-control form-control-sm" rows="3" id="editarDescripcion"></textarea>
+            <label for="editarFinEx" class="form-label">Fecha de finalización</label>
+            <input type="month" class="form-control form-control-sm" id="editarFinEx">
+          </div>
+          <div class="mb-2">
+            <label for="editarDescripcionEx" class="form-label">Descripción</label>
+            <textarea type="text" class="form-control form-control-sm" rows="3" id="editarDescripcionEx"></textarea>
           </div>
           <button type="button" class="btn btn-info mt-2">Guardar</button>
         </form>
