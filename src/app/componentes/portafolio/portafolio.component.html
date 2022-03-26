@@ -3,8 +3,8 @@
       <button type="button" class="boton-1 boton-2 bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#editarPortafolio"></button>
       <h2>Proyectos</h2></div>
     <ul class="d-flex flex-wrap align-items-center">
-    <li *ngFor="let proyectos of proyectosList">
-      <div class="card p-3">
+    <li *ngFor="let proyectos of proyectosList" class="p-3">
+      <div class="seccion-proyecto card">
         <div class="card-body">
           <div class="btn-group-vertical" style="float: right;">
             <button type="button" class="boton-1 bi-pencil-fill" data-bs-toggle="modal" data-bs-target="#editarPortafolio"></button>
@@ -14,8 +14,8 @@
           <p class="card-subtitle mb-2 fechas text-muted">{{proyectos.finPr}}</p>
           <p class="card-text mb-2">{{proyectos.descripcionPr}}</p>
           <div>
-            <a type="button" class="btn btn-info me-2" [href]="proyectos.link">{{proyectos.link}}</a>
-            <a type="button" class="btn btn-info" [href]="proyectos.fuente">{{proyectos.fuente}}</a>
+            <a type="button" class="btn btn-info me-2" [href]="proyectos.link">Ver</a>
+            <a type="button" class="btn btn-info" [href]="proyectos.fuente">Fuente</a>
           </div>
           </div>
       </div>

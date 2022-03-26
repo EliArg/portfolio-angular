@@ -11,7 +11,7 @@
     <ul>
     <li *ngFor="let redes of redesList">
     <div class="d-flex me-2">
-      <a [href]="redes.linkRed"><i class="bi-github"></i></a>
+      <a [href]="redes.linkRed"><i [class]="'bi-'+ redes.nombreRed"></i></a>
       <div class="btn-group-vertical">
         <button type="button" class="boton-1 bi-pencil-fill" data-bs-toggle="modal" data-bs-target="#editarRedes"></button>
         <button type="button" class="boton-1 bi-x-circle-fill" ></button>
