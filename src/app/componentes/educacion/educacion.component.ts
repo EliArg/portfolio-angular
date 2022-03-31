@@ -15,5 +15,9 @@ export class EducacionComponent implements OnInit {
       this.educacionList=data.educacion;
     })
   }
-
+  removeEd(index:number){
+    if(index > -1){
+      this.educacionList.splice(index,1);
+    }
+  }
 }

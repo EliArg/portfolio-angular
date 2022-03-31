@@ -15,5 +15,9 @@ export class HeaderComponent implements OnInit {
       this.redesList=data.redes;
     })
   }
-
+  removeRed(index:number){
+    if(index > -1){
+      this.redesList.splice(index,1);
+    }
+  }
 }

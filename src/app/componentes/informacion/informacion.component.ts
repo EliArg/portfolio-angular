@@ -15,5 +15,4 @@ export class InformacionComponent implements OnInit {
       this.informacion=data.informacion;
     });
   }
-
 }

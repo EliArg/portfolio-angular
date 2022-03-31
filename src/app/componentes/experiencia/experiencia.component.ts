@@ -15,5 +15,9 @@ export class ExperienciaComponent implements OnInit {
       this.experienciaList=data.experiencia;
     })
   }
-
+  removeExp(index:number){
+    if(index > -1){
+      this.experienciaList.splice(index,1);
+    }
+  }
 }

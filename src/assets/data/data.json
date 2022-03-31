@@ -6,11 +6,22 @@
     "avatar": "assets/img/avatar.png"
 },
     "redes": [{
+        "idred": "1",
         "nombreRed": "github",
         "linkRed": "https://github.com/EliArg"
     }],
     "experiencia": [{
+        "idex": "1",
         "trabajo": "Trabajo",
+        "empresaN": "Empresa",
+        "empresaL": "assets/img/APcolor.png",
+        "inicioEx": "mes/año",
+        "finEx": "mes/año",
+        "descripcionEx": "Descripción"
+    },
+    {
+        "idex": "2",
+        "trabajo": "Trabajo 2",
         "empresaN": "Empresa",
         "empresaL": "assets/img/APcolor.png",
         "inicioEx": "mes/año",
@@ -18,6 +29,7 @@
         "descripcionEx": "Descripción"
     }],
     "educacion": [{
+        "ided": "1",
         "curso": "Curso",
         "institucionN": "Empresa",
         "institucionL": "assets/img/APcolor.png",
@@ -26,10 +38,12 @@
         "descripcionEd": "Descripción"
     }],
     "habilidades": [{
+        "idhab": "1",
         "skill": "Habilidad",
         "nivel": "30"
     }],
     "proyectos": [{
+        "idpr": "1",
         "proyecto": "Proyecto",
         "finPr": "mes/año",
         "descripcionPr": "Descripción",

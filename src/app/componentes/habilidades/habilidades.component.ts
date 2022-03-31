@@ -15,4 +15,9 @@ export class HabilidadesComponent implements OnInit {
       this.habilidadesList=data.habilidades;
     })
   }
+  removeHab(index:number){
+    if(index > -1){
+      this.habilidadesList.splice(index,1);
+    }
+  }
 }

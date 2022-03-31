@@ -15,5 +15,9 @@ export class PortafolioComponent implements OnInit {
       this.proyectosList=data.proyectos;
     })
   }
-
+  removePr(index:number){
+    if(index > -1){
+      this.proyectosList.splice(index,1);
+    }
+  }
 }

@@ -3,7 +3,7 @@
       <button type="button" class="boton-1 boton-2 bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#editarExperiencia"></button>
       <h2>Experiencia</h2></div>
     <ul>
-    <li *ngFor="let experiencia of experienciaList" >
+    <li *ngFor="let experiencia of experienciaList; let idex = index">
       <div class="d-flex align-items-center p-3">
       <img [src]="experiencia.empresaL" class="seccion-img me-2">
       <div class="col"><p><b>{{experiencia.trabajo}}</b> en {{experiencia.empresaN}}</p>
@@ -12,7 +12,7 @@
     </div>
     <div class="btn-group-vertical">
       <button type="button" class="boton-1 bi-pencil-fill" data-bs-toggle="modal" data-bs-target="#editarExperiencia"></button>
-      <button type="button" class="boton-1 bi-x-circle-fill"></button>
+      <button type="button" (click)="removeExp(idex)" class="boton-1 bi-x-circle-fill"></button>
     </div>
       </div>
   </li>
