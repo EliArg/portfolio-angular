@@ -1,12 +1,12 @@
 <div class="seccion container-lg">
     <div class="seccion-titulo">
-      <button type="button" class="boton-1 boton-2 bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#editarHabilidades"></button>
+      <button type="button" class="boton-1 boton-2 bi-plus-circle-fill" (click)="creacion()" data-bs-toggle="modal" data-bs-target="#editarHabilidades"></button>
       <h2>Habilidades</h2></div>
     <ul class="d-flex flex-wrap align-items-center">
     <li *ngFor="let habilidades of habilidadesList; let idhab = index" class="p-3">
       <div class="seccion-skill">
       <div style="float:right">
-        <button type="button" class="boton-1 bi-pencil-fill me-2" data-bs-toggle="modal" data-bs-target="#editarHabilidades"></button>
+        <button type="button" class="boton-1 bi-pencil-fill me-2" (click)="edicion()" data-bs-toggle="modal" data-bs-target="#editarHabilidades"></button>
         <button type="button" (click)="removeHab(idhab)" class="boton-1 bi-x-circle-fill"></button>
       </div>  
       <p>{{habilidades.skill}}</p>
@@ -21,7 +21,8 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="editarHabilidadesT">Editar habilidades</h5>
+        <h5 *ngIf="edithab; else nuevahab1" class="modal-title" id="editarHabilidadesT">Editar habilidad</h5>
+<ng-template #nuevahab1><h5 class="modal-title" id="editarHabilidadesT">Nueva habilidad</h5></ng-template>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -34,7 +35,8 @@
             <label for="editarNivelHa" class="form-label">Nivel</label>
             <input type="number" class="form-control form-control-sm" id="editarNivelHa" min="0" max="100" step="5">
           </div>
-          <button type="button" class="btn btn-info mt-2">Guardar</button>
+          <button *ngIf="edithab; else nuevahab2" type="button" class="btn btn-info mt-2">Guardar cambios</button>
+          <ng-template #nuevahab2><button type="button" class="btn btn-info mt-2">Crear</button></ng-template>
         </form>
       </div>
     </div>

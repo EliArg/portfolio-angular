@@ -16,7 +16,7 @@
         "empresaN": "Empresa",
         "empresaL": "assets/img/APcolor.png",
         "inicioEx": "mes/año",
-        "finEx": "mes/año",
+        "finEx": "",
         "descripcionEx": "Descripción"
     },
     {

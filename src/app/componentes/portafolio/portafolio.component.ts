@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PortafolioapService } from 'src/app/servicios/portafolioap.service';
+import { Proyecto } from 'src/app/modelos/modelos';
 
 @Component({
   selector: 'app-portafolio',
@@ -7,7 +8,8 @@ import { PortafolioapService } from 'src/app/servicios/portafolioap.service';
   styleUrls: ['./portafolio.component.css']
 })
 export class PortafolioComponent implements OnInit {
-  proyectosList:any;
+  proyectosList:Proyecto[]=[];
+  editpr:boolean=true;
   constructor(private datosPortafolio:PortafolioapService) { }
 
   ngOnInit(): void {
@@ -19,5 +21,11 @@ export class PortafolioComponent implements OnInit {
     if(index > -1){
       this.proyectosList.splice(index,1);
     }
+  }
+  creacion(){
+    this.editpr = false;
+  }
+  edicion(){
+    this.editpr = true;
   }
 }

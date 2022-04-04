@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PortafolioapService } from 'src/app/servicios/portafolioap.service';
+import { Habilidad } from 'src/app/modelos/modelos';
 
 @Component({
   selector: 'app-habilidades',
@@ -7,7 +8,8 @@ import { PortafolioapService } from 'src/app/servicios/portafolioap.service';
   styleUrls: ['./habilidades.component.css']
 })
 export class HabilidadesComponent implements OnInit {
-  habilidadesList:any;
+  habilidadesList:Habilidad[]=[];
+  edithab:boolean=true;
   constructor(private datosPortafolio:PortafolioapService) { }
 
   ngOnInit(): void {
@@ -19,5 +21,11 @@ export class HabilidadesComponent implements OnInit {
     if(index > -1){
       this.habilidadesList.splice(index,1);
     }
+  }
+  creacion(){
+    this.edithab = false;
+  }
+  edicion(){
+    this.edithab = true;
   }
 }

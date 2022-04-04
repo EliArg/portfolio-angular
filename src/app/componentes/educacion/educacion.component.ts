@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PortafolioapService } from 'src/app/servicios/portafolioap.service';
-
+import { Educacion } from 'src/app/modelos/modelos';
 @Component({
   selector: 'app-educacion',
   templateUrl: './educacion.component.html',
@@ -9,7 +9,8 @@ import { PortafolioapService } from 'src/app/servicios/portafolioap.service';
 export class EducacionComponent implements OnInit {
 
   constructor(private datosPortafolio:PortafolioapService) { }
-  educacionList:any;
+  educacionList:Educacion[]=[];
+  edited:boolean=true;
   ngOnInit(): void {
     this.datosPortafolio.obtenerDatos().subscribe(data =>{
       this.educacionList=data.educacion;
@@ -19,5 +20,11 @@ export class EducacionComponent implements OnInit {
     if(index > -1){
       this.educacionList.splice(index,1);
     }
+  }
+  creacion(){
+    this.edited = false;
+  }
+  edicion(){
+    this.edited=true;
   }
 }

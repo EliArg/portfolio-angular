@@ -1,17 +1,18 @@
 <div class="seccion container-lg">
     <div class="seccion-titulo">
-      <button type="button" class="boton-1 boton-2 bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#editarExperiencia"></button>
+      <button type="button" class="boton-1 boton-2 bi-plus-circle-fill" (click)="creacion()" data-bs-toggle="modal" data-bs-target="#editarExperiencia"></button>
       <h2>Experiencia</h2></div>
     <ul>
     <li *ngFor="let experiencia of experienciaList; let idex = index">
       <div class="d-flex align-items-center p-3">
       <img [src]="experiencia.empresaL" class="seccion-img me-2">
       <div class="col"><p><b>{{experiencia.trabajo}}</b> en {{experiencia.empresaN}}</p>
-      <p class="fechas text-muted">{{experiencia.inicioEx}} - {{experiencia.finEx}}</p>
+        <p *ngIf="experiencia.finEx; else actualEx" class="fechas text-muted">{{experiencia.inicioEx}} - {{experiencia.finEx}}</p>
+        <ng-template #actualEx><p class="fechas text-muted">{{experiencia.inicioEx}} - actual</p></ng-template>
       <p>{{experiencia.descripcionEx}}</p>
     </div>
     <div class="btn-group-vertical">
-      <button type="button" class="boton-1 bi-pencil-fill" data-bs-toggle="modal" data-bs-target="#editarExperiencia"></button>
+      <button type="button" class="boton-1 bi-pencil-fill" (click)="edicion()" data-bs-toggle="modal" data-bs-target="#editarExperiencia"></button>
       <button type="button" (click)="removeExp(idex)" class="boton-1 bi-x-circle-fill"></button>
     </div>
       </div>
@@ -23,7 +24,8 @@
   <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="editarExperienciaT">Editar experiencia</h5>
+        <h5 *ngIf="editex; else nuevaex1" class="modal-title" id="editarExperienciaT">Editar experiencia</h5>
+<ng-template #nuevaex1><h5 class="modal-title" id="editarExperienciaT">Nueva experiencia</h5></ng-template>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -52,7 +54,8 @@
             <label for="editarDescripcionEx" class="form-label">Descripción</label>
             <textarea type="text" class="form-control form-control-sm" rows="3" id="editarDescripcionEx"></textarea>
           </div>
-          <button type="button" class="btn btn-info mt-2">Guardar</button>
+          <button *ngIf="editex; else nuevaex2" type="button" class="btn btn-info mt-2">Guardar cambios</button>
+          <ng-template #nuevaex2><button type="button" class="btn btn-info mt-2">Crear</button></ng-template>
         </form>
       </div>
     </div>
