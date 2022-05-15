@@ -1,52 +1,52 @@
 {   "informacion": {
     "nombre": "Nombre Apellido",
     "titulo": "Full Stack Developer Jr.",
-    "sobreMi": "Descripción",
+    "sobre_mi": "Descripción",
     "banner": "assets/img/banner.jpg",
     "avatar": "assets/img/avatar.png"
 },
     "redes": [{
-        "idred": "1",
-        "nombreRed": "github",
-        "linkRed": "https://github.com/EliArg"
+        "id_red": "1",
+        "nombre_red": "github",
+        "link_red": "https://github.com/EliArg"
     }],
     "experiencia": [{
-        "idex": "1",
+        "id_ex": "1",
         "trabajo": "Trabajo",
-        "empresaN": "Empresa",
-        "empresaL": "assets/img/APcolor.png",
-        "inicioEx": "mes/año",
-        "finEx": "",
-        "descripcionEx": "Descripción"
+        "empresa_n": "Empresa",
+        "empresa_l": "assets/img/APcolor.png",
+        "inicio_ex": "mes/año",
+        "fin_ex": "",
+        "descripcion_ex": "Descripción"
     },
     {
-        "idex": "2",
+        "id_ex": "2",
         "trabajo": "Trabajo 2",
-        "empresaN": "Empresa",
-        "empresaL": "assets/img/APcolor.png",
-        "inicioEx": "mes/año",
-        "finEx": "mes/año",
-        "descripcionEx": "Descripción"
+        "empresa_n": "Empresa",
+        "empresa_l": "assets/img/APcolor.png",
+        "inicio_ex": "mes/año",
+        "fin_ex": "mes/año",
+        "descripcion_ex": "Descripción"
     }],
     "educacion": [{
-        "ided": "1",
+        "id_ed": "1",
         "curso": "Curso",
-        "institucionN": "Empresa",
-        "institucionL": "assets/img/APcolor.png",
-        "inicioEd": "mes/año",
-        "finEd": "mes/año",
-        "descripcionEd": "Descripción"
+        "institucion_n": "Empresa",
+        "institucion_l": "assets/img/APcolor.png",
+        "inicio_ed": "mes/año",
+        "fin_ed": "mes/año",
+        "descripcion_ed": "Descripción"
     }],
     "habilidades": [{
-        "idhab": "1",
+        "id_hab": "1",
         "skill": "Habilidad",
         "nivel": "30"
     }],
     "proyectos": [{
-        "idpr": "1",
+        "id_pr": "1",
         "proyecto": "Proyecto",
-        "finPr": "mes/año",
-        "descripcionPr": "Descripción",
+        "fin_pr": "mes/año",
+        "descripcion_pr": "Descripción",
         "link": "https://github.com/EliArg",
         "fuente": "https://github.com/EliArg"
     }]

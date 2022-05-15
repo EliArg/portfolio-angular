@@ -3,11 +3,11 @@
       <button type="button" class="boton-1 boton-2 bi-plus-circle-fill" (click)="creacion()" data-bs-toggle="modal" data-bs-target="#editarHabilidades"></button>
       <h2>Habilidades</h2></div>
     <ul class="d-flex flex-wrap align-items-center">
-    <li *ngFor="let habilidades of habilidadesList; let idhab = index" class="p-3">
+    <li *ngFor="let habilidades of habilidadesList; let id_hab = index" class="p-3">
       <div class="seccion-skill">
       <div style="float:right">
         <button type="button" class="boton-1 bi-pencil-fill me-2" (click)="edicion()" data-bs-toggle="modal" data-bs-target="#editarHabilidades"></button>
-        <button type="button" (click)="removeHab(idhab)" class="boton-1 bi-x-circle-fill"></button>
+        <button type="button" (click)="borrarHab(id_hab)" class="boton-1 bi-x-circle-fill"></button>
       </div>  
       <p>{{habilidades.skill}}</p>
       <div class="progress">

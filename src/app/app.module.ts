@@ -8,10 +8,10 @@ import { InformacionComponent } from './componentes/informacion/informacion.comp
 import { ExperienciaComponent } from './componentes/experiencia/experiencia.component';
 import { EducacionComponent } from './componentes/educacion/educacion.component';
 import { HabilidadesComponent } from './componentes/habilidades/habilidades.component';
-import { PortafolioComponent } from './componentes/portafolio/portafolio.component';
 import { FooterComponent } from './componentes/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
+import { ProyectosComponent } from './componentes/proyectos/proyectos.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,7 @@ import { FormsModule } from '@angular/forms';
     ExperienciaComponent,
     EducacionComponent,
     HabilidadesComponent,
-    PortafolioComponent,
+    ProyectosComponent,
     FooterComponent
   ],
   imports: [

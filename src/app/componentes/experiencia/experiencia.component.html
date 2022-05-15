@@ -3,17 +3,17 @@
       <button type="button" class="boton-1 boton-2 bi-plus-circle-fill" (click)="creacion()" data-bs-toggle="modal" data-bs-target="#editarExperiencia"></button>
       <h2>Experiencia</h2></div>
     <ul>
-    <li *ngFor="let experiencia of experienciaList; let idex = index">
+    <li *ngFor="let experiencia of experienciaList; let id_ex = index">
       <div class="d-flex align-items-center p-3">
-      <img [src]="experiencia.empresaL" class="seccion-img me-2">
-      <div class="col"><p><b>{{experiencia.trabajo}}</b> en {{experiencia.empresaN}}</p>
-        <p *ngIf="experiencia.finEx; else actualEx" class="fechas text-muted">{{experiencia.inicioEx}} - {{experiencia.finEx}}</p>
-        <ng-template #actualEx><p class="fechas text-muted">{{experiencia.inicioEx}} - actual</p></ng-template>
-      <p>{{experiencia.descripcionEx}}</p>
+      <img [src]="experiencia.empresa_l" class="seccion-img me-2">
+      <div class="col"><p><b>{{experiencia.trabajo}}</b> en {{experiencia.empresa_n}}</p>
+        <p *ngIf="experiencia.fin_ex; else actualEx" class="fechas text-muted">{{experiencia.inicio_ex}} - {{experiencia.fin_ex}}</p>
+        <ng-template #actualEx><p class="fechas text-muted">{{experiencia.inicio_ex}} - actual</p></ng-template>
+      <p>{{experiencia.descripcion_ex}}</p>
     </div>
     <div class="btn-group-vertical">
       <button type="button" class="boton-1 bi-pencil-fill" (click)="edicion()" data-bs-toggle="modal" data-bs-target="#editarExperiencia"></button>
-      <button type="button" (click)="removeExp(idex)" class="boton-1 bi-x-circle-fill"></button>
+      <button type="button" (click)="borrarExp(id_ex)" class="boton-1 bi-x-circle-fill"></button>
     </div>
       </div>
   </li>

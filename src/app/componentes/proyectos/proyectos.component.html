@@ -1,18 +1,18 @@
 <div class="seccion container-lg">
     <div class="seccion-titulo">
-      <button type="button" class="boton-1 boton-2 bi-plus-circle-fill" (click)="creacion()" data-bs-toggle="modal" data-bs-target="#editarPortafolio"></button>
+      <button type="button" class="boton-1 boton-2 bi-plus-circle-fill" (click)="creacion()" data-bs-toggle="modal" data-bs-target="#editarProyectos"></button>
       <h2>Proyectos</h2></div>
     <ul class="d-flex flex-wrap align-items-center">
-    <li *ngFor="let proyectos of proyectosList; let idpr = index" class="p-3">
+    <li *ngFor="let proyectos of proyectosList; let id_pr = index" class="p-3">
       <div class="seccion-proyecto card">
         <div class="card-body">
           <div class="btn-group-vertical" style="float: right;">
-            <button type="button" class="boton-1 bi-pencil-fill" (click)="edicion()" data-bs-toggle="modal" data-bs-target="#editarPortafolio"></button>
-            <button type="button" (click)="removePr(idpr)" class="boton-1 bi-x-circle-fill"></button>
+            <button type="button" class="boton-1 bi-pencil-fill" (click)="edicion()" data-bs-toggle="modal" data-bs-target="#editarProyectos"></button>
+            <button type="button" (click)="borrarPr(id_pr)" class="boton-1 bi-x-circle-fill"></button>
           </div>
           <p class="card-title"><b>{{proyectos.proyecto}}</b></p>
-          <p class="card-subtitle mb-2 fechas text-muted">{{proyectos.finPr}}</p>
-          <p class="card-text mb-2">{{proyectos.descripcionPr}}</p>
+          <p class="card-subtitle mb-2 fechas text-muted">{{proyectos.fin_pr}}</p>
+          <p class="card-text mb-2">{{proyectos.descripcion_pr}}</p>
           <div>
             <a *ngIf="proyectos.link" type="button" class="btn btn-info me-2" [href]="proyectos.link">Ver</a>
             <a type="button" class="btn btn-info" [href]="proyectos.fuente">Fuente</a>
@@ -23,12 +23,12 @@
     </ul>
 
   <!--Modal-->
-  <div class="modal fade" id="editarPortafolio" tabindex="-1" aria-labelledby="editarPortafolioT" aria-hidden="true">
+  <div class="modal fade" id="editarProyectos" tabindex="-1" aria-labelledby="editarProyectosT" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 *ngIf="editpr; else nuevopr1" class="modal-title" id="editarPortafolioT">Editar proyecto</h5>
-        <ng-template #nuevopr1><h5 class="modal-title" id="editarPortafolioT">Nuevo proyecto</h5></ng-template>
+          <h5 *ngIf="editpr; else nuevopr1" class="modal-title" id="editarProyectosT">Editar proyecto</h5>
+        <ng-template #nuevopr1><h5 class="modal-title" id="editarProyectosT">Nuevo proyecto</h5></ng-template>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PortafolioapService } from 'src/app/servicios/portafolioap.service';
+import { PortfolioapService } from 'src/app/servicios/portfolioap.service';
 import { Experiencia } from 'src/app/modelos/modelos';
 
 @Component({
@@ -10,17 +10,15 @@ import { Experiencia } from 'src/app/modelos/modelos';
 export class ExperienciaComponent implements OnInit {
   experienciaList: Experiencia []= [];
   editex:boolean=true;
-  constructor(private datosPortafolio:PortafolioapService) { }
+  constructor(private datosPortfolio:PortfolioapService) { }
 
   ngOnInit(): void {
-    this.datosPortafolio.obtenerDatos().subscribe(data =>{
+    this.datosPortfolio.obtenerDatos().subscribe(data =>{
       this.experienciaList=data.experiencia;
     })
   }
-  removeExp(index:number){
-    if(index > -1){
-      this.experienciaList.splice(index,1);
-    }
+  borrarExp(id_ex:number){
+    
   }
   creacion(){
     this.editex = false;

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PortafolioapService } from 'src/app/servicios/portafolioap.service';
+import { PortfolioapService } from 'src/app/servicios/portfolioap.service';
 import { Educacion } from 'src/app/modelos/modelos';
 @Component({
   selector: 'app-educacion',
@@ -8,18 +8,16 @@ import { Educacion } from 'src/app/modelos/modelos';
 })
 export class EducacionComponent implements OnInit {
 
-  constructor(private datosPortafolio:PortafolioapService) { }
+  constructor(private datosPortfolio:PortfolioapService) { }
   educacionList:Educacion[]=[];
   edited:boolean=true;
   ngOnInit(): void {
-    this.datosPortafolio.obtenerDatos().subscribe(data =>{
+    this.datosPortfolio.obtenerDatos().subscribe(data =>{
       this.educacionList=data.educacion;
     })
   }
-  removeEd(index:number){
-    if(index > -1){
-      this.educacionList.splice(index,1);
-    }
+  borrarEd(id_ed:number){
+    
   }
   creacion(){
     this.edited = false;

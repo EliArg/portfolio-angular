@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PortafolioapService } from 'src/app/servicios/portafolioap.service';
+import { PortfolioapService } from 'src/app/servicios/portfolioap.service';
 
 @Component({
   selector: 'app-informacion',
@@ -8,10 +8,10 @@ import { PortafolioapService } from 'src/app/servicios/portafolioap.service';
 })
 export class InformacionComponent implements OnInit {
   informacion:any;
-  constructor(private datosPortafolio:PortafolioapService) { }
+  constructor(private datosPortfolio:PortfolioapService) { }
 
   ngOnInit(): void {
-    this.datosPortafolio.obtenerDatos().subscribe(data => {
+    this.datosPortfolio.obtenerDatos().subscribe(data => {
       this.informacion=data.informacion;
     });
   }

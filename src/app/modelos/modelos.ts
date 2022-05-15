@@ -1,43 +1,43 @@
 export interface Informacion {
     nombre: string;
     titulo: string;
-    sobreMi: string;
+    sobre_mi: string;
     banner: string;
     avatar: string;
 }
 export interface Red {
-    idred?: number;
-    nombreRed: string;
-    linkRed: string;
+    id_red?: number;
+    nombre_red: string;
+    link_red: string;
 }
 export interface Experiencia {
-    idex?: number;
+    id_ex?: number;
     trabajo: string;
-    empresaN: string;
-    empresaL?: string;
-    inicioEx: string;
-    finEx?: string;
-    descripcionEx?: string;
+    empresa_n: string;
+    empresa_l?: string;
+    inicio_ex: string;
+    fin_ex?: string;
+    descripcion_ex?: string;
 }
 export interface Educacion {
-    ided?: number;
+    id_ed?: number;
     curso: string;
-    institucionN: string;
-    institucionL?: string;
-    inicioEd: string;
-    finEd?: string;
-    descripcionEd?: string;
+    institucion_n: string;
+    institucion_l?: string;
+    inicio_ed: string;
+    fin_ed?: string;
+    descripcion_ed?: string;
 }
 export interface Habilidad {
-    idhab?: number;
+    id_hab?: number;
     skill: string;
     nivel: number;
 }
 export interface Proyecto {
-    idpr?: number;
+    id_pr?: number;
     proyecto: string;
-    finPr: string;
-    descripcionPr: string;
+    fin_pr: string;
+    descripcion_pr: string;
     link?: string;
     fuente: string;
 }

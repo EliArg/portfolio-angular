@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PortafolioapService } from 'src/app/servicios/portafolioap.service';
+import { PortfolioapService } from 'src/app/servicios/portfolioap.service';
 import { Red } from 'src/app/modelos/modelos';
 
 @Component({
@@ -10,17 +10,15 @@ import { Red } from 'src/app/modelos/modelos';
 export class HeaderComponent implements OnInit {
   redesList:Red []=[];
   editred:boolean=true;
-  constructor(private datosPortafolio:PortafolioapService) { }
+  constructor(private datosPortfolio:PortfolioapService) { }
   
   ngOnInit(): void {
-    this.datosPortafolio.obtenerDatos().subscribe(data =>{
+    this.datosPortfolio.obtenerDatos().subscribe(data =>{
       this.redesList=data.redes;
     })
   }
-  removeRed(index:number){
-    if(index > -1){
-      this.redesList.splice(index,1);
-    }
+  borrarRed(id_red:number){
+    
   }
   creacion(){
     this.editred = false;

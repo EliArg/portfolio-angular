@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PortafolioapService } from 'src/app/servicios/portafolioap.service';
+import { PortfolioapService } from 'src/app/servicios/portfolioap.service';
 import { Habilidad } from 'src/app/modelos/modelos';
 
 @Component({
@@ -10,17 +10,15 @@ import { Habilidad } from 'src/app/modelos/modelos';
 export class HabilidadesComponent implements OnInit {
   habilidadesList:Habilidad[]=[];
   edithab:boolean=true;
-  constructor(private datosPortafolio:PortafolioapService) { }
+  constructor(private datosPortfolio:PortfolioapService) { }
 
   ngOnInit(): void {
-    this.datosPortafolio.obtenerDatos().subscribe(data =>{
+    this.datosPortfolio.obtenerDatos().subscribe(data =>{
       this.habilidadesList=data.habilidades;
     })
   }
-  removeHab(index:number){
-    if(index > -1){
-      this.habilidadesList.splice(index,1);
-    }
+  borrarHab(id_hab:number){
+    
   }
   creacion(){
     this.edithab = false;

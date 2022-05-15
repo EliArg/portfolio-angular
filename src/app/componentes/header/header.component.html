@@ -9,12 +9,12 @@
   <div class="d-flex justify-content-end">
     <button type="button" class="boton-1 bi-plus-circle-fill me-2" (click)="creacion()" data-bs-toggle="modal" data-bs-target="#editarRedes"></button>
     <ul>
-    <li *ngFor="let redes of redesList; let idred = index">
+    <li *ngFor="let redes of redesList; let id_red = index">
     <div class="d-flex me-2">
-      <a [href]="redes.linkRed"><i [class]="'bi-'+ redes.nombreRed"></i></a>
+      <a [href]="redes.link_red"><i [class]="'bi-'+ redes.nombre_red"></i></a>
       <div class="btn-group-vertical">
         <button type="button" class="boton-1 bi-pencil-fill" (click)="edicion()" data-bs-toggle="modal" data-bs-target="#editarRedes"></button>
-        <button type="button" (click)="removeRed(idred)" class="boton-1 bi-x-circle-fill" ></button>
+        <button type="button" (click)="borrarRed(id_red)" class="boton-1 bi-x-circle-fill" ></button>
       </div>
     </div>
   </li>
