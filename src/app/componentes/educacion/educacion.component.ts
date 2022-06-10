@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { PortfolioapService } from 'src/app/servicios/portfolioap.service';
-import { Educacion } from 'src/app/modelos/modelos';
+import { Educacion } from 'src/app/modelos/Educacion';
+import { EducacionapService } from 'src/app/servicios/educacionap.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-educacion',
   templateUrl: './educacion.component.html',
@@ -8,21 +9,32 @@ import { Educacion } from 'src/app/modelos/modelos';
 })
 export class EducacionComponent implements OnInit {
 
-  constructor(private datosPortfolio:PortfolioapService) { }
+  constructor(private datosEducacion:EducacionapService, private router:Router) { }
   educacionList:Educacion[]=[];
-  edited:boolean=true;
+  educacion:Educacion = new Educacion();
   ngOnInit(): void {
-    this.datosPortfolio.obtenerDatos().subscribe(data =>{
-      this.educacionList=data.educacion;
-    })
+    this.obtenerEducacion();
   }
-  borrarEd(id_ed:number){
-    
+  private obtenerEducacion(){
+    this.datosEducacion.obtenerEducacion().subscribe(data =>{
+      this.educacionList=data;
+    })}
+    editarEducacion(id_ed:number){
+      this.router.navigate(['educacion',id_ed])
+    }
+    eliminarEducacion(id_ed:number){
+      this.datosEducacion.eliminarEducacion(id_ed).subscribe(dato =>{
+        this.obtenerEducacion();
+      })
+    }
+    crearEducacion(){
+      this.datosEducacion.crearEducacion(this.educacion).subscribe(dato =>{
+        console.log(dato);
+      }, error => console.log(error));
+      window.location.reload();
+    }
+    onSubmit(){
+      this.crearEducacion();
+    }  
   }
-  creacion(){
-    this.edited = false;
-  }
-  edicion(){
-    this.edited=true;
-  }
-}
+  

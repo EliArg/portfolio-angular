@@ -1,65 +1,71 @@
 <div class="seccion container-lg">
     <div class="seccion-titulo">
-      <button type="button" class="boton-1 boton-2 bi-plus-circle-fill" (click)="creacion()" data-bs-toggle="modal" data-bs-target="#editarExperiencia"></button>
+      <button type="button" class="boton-1 boton-2 bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#crearExperiencia"></button>
       <h2>Experiencia</h2></div>
     <ul>
     <li *ngFor="let experiencia of experienciaList; let id_ex = index">
       <div class="d-flex align-items-center p-3">
       <img [src]="experiencia.empresa_l" class="seccion-img me-2">
       <div class="col"><p><b>{{experiencia.trabajo}}</b> en {{experiencia.empresa_n}}</p>
-        <p *ngIf="experiencia.fin_ex; else actualEx" class="fechas text-muted">{{experiencia.inicio_ex}} - {{experiencia.fin_ex}}</p>
-        <ng-template #actualEx><p class="fechas text-muted">{{experiencia.inicio_ex}} - actual</p></ng-template>
+        <p *ngIf="experiencia.fin_ex; else actualEx" class="fechas text-muted">{{experiencia.inicio_ex | date:'MM/yyyy'}} - {{experiencia.fin_ex | date:'MM/yyyy'}}</p>
+        <ng-template #actualEx><p class="fechas text-muted">{{experiencia.inicio_ex | date:'MM/yyyy'}} - actual</p></ng-template>
       <p>{{experiencia.descripcion_ex}}</p>
     </div>
     <div class="btn-group-vertical">
-      <button type="button" class="boton-1 bi-pencil-fill" (click)="edicion()" data-bs-toggle="modal" data-bs-target="#editarExperiencia"></button>
-      <button type="button" (click)="borrarExp(id_ex)" class="boton-1 bi-x-circle-fill"></button>
+      <button type="button" (click)="editarExperiencia(experiencia.id_ex)" class="boton-1 bi-pencil-fill" ></button>
+      <button type="button" (click)="eliminarExperiencia(experiencia.id_ex)" class="boton-1 bi-x-circle-fill" ></button>
     </div>
       </div>
   </li>
   </ul>
 
   <!--Modal-->
-<div class="modal fade" id="editarExperiencia" tabindex="-1" aria-labelledby="editarExperienciaT" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 *ngIf="editex; else nuevaex1" class="modal-title" id="editarExperienciaT">Editar experiencia</h5>
-<ng-template #nuevaex1><h5 class="modal-title" id="editarExperienciaT">Nueva experiencia</h5></ng-template>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="mb-2">
-            <label for="editarTrabajo" class="form-label">Trabajo</label>
-            <input type="text" class="form-control form-control-sm" id="editarTrabajo">
-          </div>
-          <div class="mb-2">
-            <label for="editarEmpresaN" class="form-label">Empresa</label>
-            <input type="text" class="form-control form-control-sm" id="editarEmpresaN">
-          </div>
-          <div class="mb-2">
-            <label for="editarEmpresaL" class="form-label">Empresa</label>
-            <input type="file" class="form-control form-control-sm" id="editarEmpresaL">
-          </div>
-          <div class="mb-2">
-            <label for="editarInicioEx" class="form-label">Fecha de inicio</label>
-            <input type="month" class="form-control form-control-sm" id="editarInicioEx">
-          </div>
-          <div class="mb-2">
-            <label for="editarFinEx" class="form-label">Fecha de finalización</label>
-            <input type="month" class="form-control form-control-sm" id="editarFinEx">
-          </div>
-          <div class="mb-2">
-            <label for="editarDescripcionEx" class="form-label">Descripción</label>
-            <textarea type="text" class="form-control form-control-sm" rows="3" id="editarDescripcionEx"></textarea>
-          </div>
-          <button *ngIf="editex; else nuevaex2" type="button" class="btn btn-info mt-2">Guardar cambios</button>
-          <ng-template #nuevaex2><button type="button" class="btn btn-info mt-2">Crear</button></ng-template>
-        </form>
+  <div class="modal fade" id="crearExperiencia" tabindex="-1" aria-labelledby="crearExperienciaT" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="crearExperienciaT">Agregar experiencia</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="onSubmit()" #experienciaForm="ngForm">
+            <div class="mb-2">
+              <label for="trabajo" class="form-label">Trabajo</label>
+              <input type="text" required class="form-control form-control-sm" 
+              id="trabajo" name="trabajo" [(ngModel)]="experiencia.trabajo" #trabajo="ngModel">
+            </div>
+            <div class="mb-2">
+              <label for="empresa_n" class="form-label">Empresa</label>
+              <input type="text" required class="form-control form-control-sm" 
+              id="empresa_n" name="empresa_n" [(ngModel)]="experiencia.empresa_n" #empresa_n="ngModel">
+            </div>
+            <div class="mb-2">
+<!--Arreglar el formato-->
+              <label for="empresa_l" class="form-label">Logo de la empresa</label>
+              <input type="text" class="form-control form-control-sm" 
+              id="empresa_l" name="empresa_l" [(ngModel)]="experiencia.empresa_l" #empresa_l="ngModel">
+            </div>
+            <div class="mb-2">
+              <label for="inicio_ex" class="form-label">Fecha de inicio</label>
+              <input type="date" required class="form-control form-control-sm" 
+              id="inicio_ex" name="inicio_ex" [(ngModel)]="experiencia.inicio_ex" #inicio_ex="ngModel">
+            </div>
+            <div class="mb-2">
+              <label for="fin_ex" class="form-label">Fecha de finalización</label>
+              <input type="date" class="form-control form-control-sm" 
+              id="fin_ex" name="fin_ex" [(ngModel)]="experiencia.fin_ex" #fin_ex="ngModel">
+            </div>
+            <div class="mb-2">
+              <label for="descripcion_ex" class="form-label">Descripción</label>
+              <textarea type="text" class="form-control form-control-sm" rows="3" 
+              id="descripcion_ex" name="descripcion_ex" [(ngModel)]="experiencia.descripcion_ex" #descripcion_ex="ngModel"></textarea>
+            </div>
+            <button type="submit" class="btn btn-info mt-2 me-2">Crear</button>
+            <button type="button" class="btn mt-2" data-bs-dismiss="modal">Cancelar</button>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
 
   </div>
   

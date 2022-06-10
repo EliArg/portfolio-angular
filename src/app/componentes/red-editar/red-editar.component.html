@@ -1,0 +1,33 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="crearRedT">Actualizar red social</h5>
+        <button type="button" class="btn-close" (click)="volver()"></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="onSubmit()" #redForm="ngForm">
+          <div class="mb-2">
+            <label for="nombre_red" class="form-label">Nombre</label>
+            <select class="form-select form-select-sm" 
+            id="nombre_red" name="nombre_red" [(ngModel)]="red.nombre_red" #nombre_red="ngModel">
+              <option selected></option>
+              <option value="facebook">Facebook</option>
+              <option value="github">Github</option>
+              <option value="google">Google</option>
+              <option value="instagram">Instagram</option>
+              <option value="linkedin">LinkedIn</option>
+              <option value="stack-overflow">Stack Overflow</option>
+              <option value="twitter">Twitter</option>
+            </select>
+          </div>
+          <div class="mb-2">
+            <label for="link_red" class="form-label">Link</label>
+            <input type="text" class="form-control form-control-sm" 
+            id="link_red" name="link_red" [(ngModel)]="red.link_red" #link_red="ngModel">
+          </div>
+          <button type="submit" class="btn btn-info mt-2 me-2">Guardar cambios</button>
+          <button type="button" class="btn mt-2" (click)="volver()">Cancelar</button>
+        </form>
+      </div>
+    </div>
+  </div>

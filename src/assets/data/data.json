@@ -1,17 +1,18 @@
-{   "informacion": {
+{   "informacion": [{
+    "id": 1,
     "nombre": "Nombre Apellido",
     "titulo": "Full Stack Developer Jr.",
     "sobre_mi": "Descripción",
     "banner": "assets/img/banner.jpg",
     "avatar": "assets/img/avatar.png"
-},
-    "redes": [{
-        "id_red": "1",
+}],
+    "red": [{
+        "id_red": 1,
         "nombre_red": "github",
         "link_red": "https://github.com/EliArg"
     }],
     "experiencia": [{
-        "id_ex": "1",
+        "id_ex": 1,
         "trabajo": "Trabajo",
         "empresa_n": "Empresa",
         "empresa_l": "assets/img/APcolor.png",
@@ -20,7 +21,7 @@
         "descripcion_ex": "Descripción"
     },
     {
-        "id_ex": "2",
+        "id_ex": 2,
         "trabajo": "Trabajo 2",
         "empresa_n": "Empresa",
         "empresa_l": "assets/img/APcolor.png",
@@ -29,7 +30,7 @@
         "descripcion_ex": "Descripción"
     }],
     "educacion": [{
-        "id_ed": "1",
+        "id_ed": 1,
         "curso": "Curso",
         "institucion_n": "Empresa",
         "institucion_l": "assets/img/APcolor.png",
@@ -37,13 +38,13 @@
         "fin_ed": "mes/año",
         "descripcion_ed": "Descripción"
     }],
-    "habilidades": [{
-        "id_hab": "1",
+    "habilidad": [{
+        "id_hab": 1,
         "skill": "Habilidad",
         "nivel": "30"
     }],
-    "proyectos": [{
-        "id_pr": "1",
+    "proyecto": [{
+        "id_pr": 1,
         "proyecto": "Proyecto",
         "fin_pr": "mes/año",
         "descripcion_pr": "Descripción",

@@ -1,34 +1,11 @@
-<div class="seccion container-lg">
-    <div class="seccion-titulo">
-      <button type="button" class="boton-1 boton-2 bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#crearEducacion"></button>
-      <h2>Educación</h2></div>
-    <ul>
-    <li *ngFor="let educacion of educacionList; let id_ed = index">
-      <div class="d-flex align-items-center p-3">
-      <img [src]="educacion.institucion_l" class="seccion-img me-2">
-      <div class="col"><p><b>{{educacion.curso}}</b> en {{educacion.institucion_n}}</p>
-        <p *ngIf="educacion.fin_ed; else actualEd" class="fechas text-muted">{{educacion.inicio_ed | date:'MM/yyyy'}} - {{educacion.fin_ed | date:'MM/yyyy'}}</p>
-        <ng-template #actualEd><p class="fechas text-muted">{{educacion.inicio_ed | date:'MM/yyyy'}} - cursando</p></ng-template>
-        <p>{{educacion.descripcion_ed}}</p>
-      </div>
-      <div class="btn-group-vertical">
-        <button type="button" (click)="editarEducacion(educacion.id_ed)" class="boton-1 bi-pencil-fill" ></button>
-        <button type="button" (click)="eliminarEducacion(educacion.id_ed)" class="boton-1 bi-x-circle-fill"></button>
-      </div>
-      </div>
-    </li>
-  </ul>
-  
-  <!--Modal-->
-<div class="modal fade" id="crearEducacion" tabindex="-1" aria-labelledby="crearEducacionT" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable">
+<div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="crearEducacionT">Agregar educación</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h5 class="modal-title" id="crearEducacionT">Editar educación</h5>
+        <button type="button" class="btn-close" (click)="volver()"></button>
       </div>
       <div class="modal-body">
-        <form (ngSubmit)="onSubmit()" #educacionForm="ngForm">
+        <form (ngSubmit)="onSubmit()" #educacionEForm="ngForm">
           <div class="mb-2">
             <label for="curso" class="form-label">Curso</label>
             <input type="text" class="form-control form-control-sm" required
@@ -59,12 +36,9 @@
             <textarea type="text" class="form-control form-control-sm" rows="3" 
             id="descripcion_ed" name="descripcion_ed" [(ngModel)]="educacion.descripcion_ed" #descripcion_ed="ngModel"></textarea>
           </div>
-          <button type="submit" class="btn btn-info mt-2 me-2">Crear</button>
-          <button type="button" class="btn mt-2" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-info mt-2 me-2">Guardar cambios</button>
+          <button type="button" class="btn mt-2" (click)="volver()">Cancelar</button>
         </form>
       </div>
     </div>
   </div>
-
-  </div>
-  

@@ -1,0 +1,68 @@
+<div class="seccion container-lg">
+    <div class="seccion-titulo">
+      <button type="button" class="boton-1 boton-2 bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#crearProyecto"></button>
+      <h2>Proyectos</h2></div>
+    <ul class="d-flex flex-wrap align-items-center">
+    <li *ngFor="let proyecto of proyectoList; let id_pr = index" class="p-3">
+      <div class="seccion-proyecto card">
+        <div class="card-body">
+          <div class="btn-group-vertical" style="float: right;">
+            <button type="button" (click)="editarProyecto(proyecto.id_pr)" class="boton-1 bi-pencil-fill"></button>
+            <button type="button" (click)="eliminarProyecto(proyecto.id_pr)" class="boton-1 bi-x-circle-fill"></button>
+          </div>
+          <p class="card-title"><b>{{proyecto.nombre_pr}}</b></p>
+          <p class="card-subtitle mb-2 fechas text-muted">{{proyecto.fin_pr}}</p>
+          <p class="card-text mb-2">{{proyecto.descripcion_pr}}</p>
+          <div>
+            <a *ngIf="proyecto.link" type="button" class="btn btn-info me-2" [href]="proyecto.link">Ver</a>
+            <a type="button" class="btn btn-info" [href]="proyecto.fuente">Fuente</a>
+          </div>
+          </div>
+      </div>
+    </li>
+    </ul>
+
+  <!--Modal-->
+  <div class="modal fade" id="crearProyecto" tabindex="-1" aria-labelledby="crearProyectoT" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="crearProyectoT">Agregar proyecto</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="onSubmit()" #proyectoForm="ngForm">
+            <div class="mb-2">
+              <label for="nombre_pr" class="form-label">Nombre</label>
+              <input type="text" class="form-control form-control-sm" required
+              id="nombre_pr" name="nombre_pr" [(ngModel)]="proyecto.nombre_pr" #nombre_pr="ngModel">
+            </div>
+            <div class="mb-2">
+              <label for="fin_pr" class="form-label">Fecha de finalización</label>
+              <input type="date" class="form-control form-control-sm" required
+              id="fin_pr" name="fin_pr" [(ngModel)]="proyecto.fin_pr" #fin_pr="ngModel">
+            </div>
+            <div class="mb-2">
+              <label for="descripcion_pr" class="form-label">Descripción</label>
+              <textarea type="text" class="form-control form-control-sm" rows="3" 
+              id="descripcion_pr" name="descripcion_pr" [(ngModel)]="proyecto.descripcion_pr" #descripcion_pr="ngModel"></textarea>
+            </div>
+            <div class="mb-2">
+              <label for="link" class="form-label">Link</label>
+              <input type="text" class="form-control form-control-sm" 
+              id="link" name="link" [(ngModel)]="proyecto.link" #link="ngModel">
+            </div>
+            <div class="mb-2">
+              <label for="fuente" class="form-label">Código fuente</label>
+              <input type="text" class="form-control form-control-sm" required
+              id="fuente" name="fuente" [(ngModel)]="proyecto.fuente" #fuente="ngModel">
+            </div>
+            <button type="submit" class="btn btn-info mt-2 me-2">Crear</button>
+            <button type="button" class="btn mt-2" data-bs-dismiss="modal">Cancelar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+  

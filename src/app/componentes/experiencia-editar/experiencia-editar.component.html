@@ -1,0 +1,44 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editarExperienciaT">Editar experiencia</h5>
+        <button type="button" class="btn-close" (click)="volver()"></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="onSubmit()" #experienciaEForm="ngForm">
+          <div class="mb-2">
+            <label for="trabajo" class="form-label">Trabajo</label>
+            <input type="text" required class="form-control form-control-sm" 
+            id="trabajo" name="trabajo" [(ngModel)]="experiencia.trabajo" #trabajo="ngModel">
+          </div>
+          <div class="mb-2">
+            <label for="empresa_n" class="form-label">Empresa</label>
+            <input type="text" required class="form-control form-control-sm" 
+            id="empresa_n" name="empresa_n" [(ngModel)]="experiencia.empresa_n" #empresa_n="ngModel">
+          </div>
+          <div class="mb-2">
+<!--Arreglar el formato-->
+            <label for="empresa_l" class="form-label">Logo de la empresa</label>
+            <input type="text" class="form-control form-control-sm" 
+            id="empresa_l" name="empresa_l" [(ngModel)]="experiencia.empresa_l" #empresa_l="ngModel">
+          </div>
+          <div class="mb-2">
+            <label for="inicio_ex" class="form-label">Fecha de inicio</label>
+            <input type="date" required class="form-control form-control-sm" 
+            id="inicio_ex" name="inicio_ex" [(ngModel)]="experiencia.inicio_ex" #inicio_ex="ngModel">
+          </div>
+          <div class="mb-2">
+            <label for="fin_ex" class="form-label">Fecha de finalización</label>
+            <input type="date" class="form-control form-control-sm" 
+            id="fin_ex" name="fin_ex" [(ngModel)]="experiencia.fin_ex" #fin_ex="ngModel">
+          </div>
+          <div class="mb-2">
+            <label for="descripcion_ex" class="form-label">Descripción</label>
+            <textarea type="text" class="form-control form-control-sm" rows="3" 
+            id="descripcion_ex" name="descripcion_ex" [(ngModel)]="experiencia.descripcion_ex" #descripcion_ex="ngModel"></textarea>
+          </div>
+          <button type="submit" class="btn btn-info mt-2 me-2">Guardar cambios</button>
+          <button type="button" class="btn mt-2" (click)="volver()">Cancelar</button>
+        </form>
+      </div>
+    </div>

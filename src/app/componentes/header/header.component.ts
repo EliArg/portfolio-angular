@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PortfolioapService } from 'src/app/servicios/portfolioap.service';
-import { Red } from 'src/app/modelos/modelos';
+import { Red } from 'src/app/modelos/Red';
 
 @Component({
   selector: 'app-header',
@@ -8,22 +7,9 @@ import { Red } from 'src/app/modelos/modelos';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  redesList:Red []=[];
-  editred:boolean=true;
-  constructor(private datosPortfolio:PortfolioapService) { }
+
+  constructor() { }
   
-  ngOnInit(): void {
-    this.datosPortfolio.obtenerDatos().subscribe(data =>{
-      this.redesList=data.redes;
-    })
-  }
-  borrarRed(id_red:number){
-    
-  }
-  creacion(){
-    this.editred = false;
-  }
-  edicion(){
-    this.editred = true;
-  }
+  ngOnInit(): void {}
+  
 }

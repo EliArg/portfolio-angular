@@ -1,0 +1,48 @@
+<div class="seccion container-lg">
+    <div class="seccion-titulo">
+      <button type="button" class="boton-1 boton-2 bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#crearHabilidad"></button>
+      <h2>Habilidades</h2></div>
+    <ul class="d-flex flex-wrap align-items-center">
+    <li *ngFor="let habilidad of habilidadList; let id_hab = index" class="p-3">
+      <div class="seccion-skill">
+      <div style="float:right">
+        <button type="button" (click)="editarHabilidad(habilidad.id_hab)" class="boton-1 bi-pencil-fill me-2"></button>
+        <button type="button" (click)="eliminarHabilidad(habilidad.id_hab)" class="boton-1 bi-x-circle-fill"></button>
+      </div>  
+      <p>{{habilidad.skill}}</p>
+      <div class="progress">
+        <div class="progress-bar bg-info" role="progressbar" [style.width.%]="habilidad.nivel"></div>
+      </div>
+      </div>
+    </li>
+    </ul>
+<!--Modal-->
+<div class="modal fade" id="crearHabilidad" tabindex="-1" aria-labelledby="crearHabilidadT" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="crearHabilidadT">Agregar habilidad</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="onSubmit()" #habilidadForm="ngForm">
+          <div class="mb-2">
+            <label for="skill" class="form-label">Habilidad</label>
+            <input type="text" class="form-control form-control-sm" required
+            id="skill" name="skill" [(ngModel)]="habilidad.skill" #skill="ngModel">
+          </div>
+          <div class="mb-2">
+            <label for="nivel" class="form-label">Nivel</label>
+            <input type="number" class="form-control form-control-sm" min="0" max="100" step="5"
+            id="nivel" name="nivel" [(ngModel)]="habilidad.nivel" #nivel="ngModel">
+          </div>
+          <button type="submit" class="btn btn-info mt-2 me-2">Crear</button>
+          <button type="button" class="btn mt-2" data-bs-dismiss="modal">Cancelar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+  
