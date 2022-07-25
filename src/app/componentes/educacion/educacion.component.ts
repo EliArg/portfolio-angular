@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Educacion } from 'src/app/modelos/Educacion';
 import { EducacionapService } from 'src/app/servicios/educacionap.service';
 import { Router } from '@angular/router';
+import { TokenService } from 'src/app/servicios/token.service';
 @Component({
   selector: 'app-educacion',
   templateUrl: './educacion.component.html',
@@ -9,11 +10,19 @@ import { Router } from '@angular/router';
 })
 export class EducacionComponent implements OnInit {
 
-  constructor(private datosEducacion:EducacionapService, private router:Router) { }
+  constructor(private datosEducacion:EducacionapService, private router:Router, private tokenService:TokenService) { }
   educacionList:Educacion[]=[];
   educacion:Educacion = new Educacion();
+  roles: string[];
+  isAdmin = false;
   ngOnInit(): void {
     this.obtenerEducacion();
+    this.roles = this.tokenService.getAuthorities();
+    this.roles.forEach(rol => {
+      if (rol === 'ROLE_ADMIN') {
+        this.isAdmin = true;
+      }
+    });
   }
   private obtenerEducacion(){
     this.datosEducacion.obtenerEducacion().subscribe(data =>{

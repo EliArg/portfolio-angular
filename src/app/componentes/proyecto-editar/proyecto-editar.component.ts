@@ -24,6 +24,6 @@ export class ProyectoEditarComponent implements OnInit {
     },error => console.log(error));
   }
   volver(){
-    this.router.navigate(['']);
+    this.router.navigate(['/portfolio']);
   }
 }

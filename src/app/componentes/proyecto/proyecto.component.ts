@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Proyecto } from 'src/app/modelos/Proyecto';
 import { ProyectoapService } from 'src/app/servicios/proyectoap.service';
 import { Router } from '@angular/router';
+import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
   selector: 'app-proyecto',
@@ -11,11 +12,19 @@ import { Router } from '@angular/router';
 export class ProyectoComponent implements OnInit {
   proyectoList: Proyecto[] = [];
   proyecto:Proyecto = new Proyecto();
-  constructor(private datosProyecto:ProyectoapService, private router:Router) {
+  roles: string[];
+  isAdmin = false;
+  constructor(private datosProyecto:ProyectoapService, private router:Router, private tokenService:TokenService) {
    }
 
   ngOnInit(): void {
     this.obtenerProyecto();
+    this.roles = this.tokenService.getAuthorities();
+    this.roles.forEach(rol => {
+      if (rol === 'ROLE_ADMIN') {
+        this.isAdmin = true;
+      }
+    });
   }
   private obtenerProyecto(){
   this.datosProyecto.obtenerProyecto().subscribe(data =>{

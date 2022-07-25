@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Red } from 'src/app/modelos/Red';
+import { Router } from '@angular/router';
+import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,21 @@ import { Red } from 'src/app/modelos/Red';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  isLogged = false;
 
-  constructor() { }
-  
-  ngOnInit(): void {}
-  
+  constructor(private tokenService: TokenService, private router:Router) { }
+
+  ngOnInit() {
+    if (this.tokenService.getToken()) {
+      this.isLogged = true;
+    } else {
+      this.isLogged = false;
+    }
+  }
+
+  onLogOut(): void {
+    this.tokenService.logOut();
+    this.router.navigate([''])
+  }
+
 }

@@ -1,17 +1,18 @@
 <div class="seccion container-lg">
     <div class="seccion-titulo">
-      <button type="button" class="boton-1 boton-2 bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#crearExperiencia"></button>
+      <button type="button" *ngIf="isAdmin" class="boton-1 boton-2 bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#crearExperiencia"></button>
       <h2>Experiencia</h2></div>
     <ul>
     <li *ngFor="let experiencia of experienciaList; let id_ex = index">
       <div class="d-flex align-items-center p-3">
-      <img [src]="experiencia.empresa_l" class="seccion-img me-2">
+      <img *ngIf="experiencia.empresa_l; else noImgEx" [src]="experiencia.empresa_l" class="seccion-img me-2">
+      <ng-template #noImgEx><img class="seccion-img me-2"></ng-template>
       <div class="col"><p><b>{{experiencia.trabajo}}</b> en {{experiencia.empresa_n}}</p>
         <p *ngIf="experiencia.fin_ex; else actualEx" class="fechas text-muted">{{experiencia.inicio_ex | date:'MM/yyyy'}} - {{experiencia.fin_ex | date:'MM/yyyy'}}</p>
         <ng-template #actualEx><p class="fechas text-muted">{{experiencia.inicio_ex | date:'MM/yyyy'}} - actual</p></ng-template>
       <p>{{experiencia.descripcion_ex}}</p>
     </div>
-    <div class="btn-group-vertical">
+    <div class="btn-group-vertical" *ngIf="isAdmin">
       <button type="button" (click)="editarExperiencia(experiencia.id_ex)" class="boton-1 bi-pencil-fill" ></button>
       <button type="button" (click)="eliminarExperiencia(experiencia.id_ex)" class="boton-1 bi-x-circle-fill" ></button>
     </div>
@@ -40,7 +41,6 @@
               id="empresa_n" name="empresa_n" [(ngModel)]="experiencia.empresa_n" #empresa_n="ngModel">
             </div>
             <div class="mb-2">
-<!--Arreglar el formato-->
               <label for="empresa_l" class="form-label">Logo de la empresa</label>
               <input type="text" class="form-control form-control-sm" 
               id="empresa_l" name="empresa_l" [(ngModel)]="experiencia.empresa_l" #empresa_l="ngModel">

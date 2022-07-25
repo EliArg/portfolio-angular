@@ -1,6 +1,6 @@
 <div class="seccion container-lg">
     <div class="seccion-titulo">
-      <button type="button" class="boton-1 boton-2 bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#crearEducacion"></button>
+      <button type="button" *ngIf="isAdmin" class="boton-1 boton-2 bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#crearEducacion"></button>
       <h2>Educación</h2></div>
     <ul>
     <li *ngFor="let educacion of educacionList; let id_ed = index">
@@ -11,7 +11,7 @@
         <ng-template #actualEd><p class="fechas text-muted">{{educacion.inicio_ed | date:'MM/yyyy'}} - cursando</p></ng-template>
         <p>{{educacion.descripcion_ed}}</p>
       </div>
-      <div class="btn-group-vertical">
+      <div class="btn-group-vertical" *ngIf="isAdmin">
         <button type="button" (click)="editarEducacion(educacion.id_ed)" class="boton-1 bi-pencil-fill" ></button>
         <button type="button" (click)="eliminarEducacion(educacion.id_ed)" class="boton-1 bi-x-circle-fill"></button>
       </div>

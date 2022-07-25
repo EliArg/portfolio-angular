@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Experiencia } from 'src/app/modelos/Experiencia';
 import { ExperienciaapService } from 'src/app/servicios/experienciaap.service';
+import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
   selector: 'app-experiencia',
@@ -11,11 +12,19 @@ import { ExperienciaapService } from 'src/app/servicios/experienciaap.service';
 export class ExperienciaComponent implements OnInit {
   experienciaList: Experiencia[] = [];
   experiencia:Experiencia = new Experiencia();
-  constructor(private datosExperiencia:ExperienciaapService, private router:Router) {
+  roles: string[];
+  isAdmin = false;
+  constructor(private datosExperiencia:ExperienciaapService, private router:Router, private tokenService:TokenService) {
    }
 
   ngOnInit(): void {
     this.obtenerExperiencia();
+    this.roles = this.tokenService.getAuthorities();
+    this.roles.forEach(rol => {
+      if (rol === 'ROLE_ADMIN') {
+        this.isAdmin = true;
+      }
+    });
   }
   private obtenerExperiencia(){
   this.datosExperiencia.obtenerExperiencia().subscribe(data =>{

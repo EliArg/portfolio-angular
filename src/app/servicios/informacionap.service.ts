@@ -21,4 +21,7 @@ export class InformacionapService {
   obtenerInformacionPorId(id:number):Observable<Object>{
     return this.httpClient.get<Informacion>(`${this.baseURL}/${id}`)
   }
+  eliminarInformacion(id:number):Observable<Object>{
+    return this.httpClient.delete(`${this.baseURL}/${id}`)
+  }
 }

@@ -1,10 +1,10 @@
 <div class="container-lg d-flex justify-content-end">
-    <button type="button" class="boton-1 bi-plus-circle-fill me-2" data-bs-toggle="modal" data-bs-target="#crearRed"></button>
+    <button type="button" *ngIf="isAdmin" class="boton-1 bi-plus-circle-fill me-2" data-bs-toggle="modal" data-bs-target="#crearRed"></button>
     <ul class="d-flex flex-wrap align-items-center">
     <li *ngFor="let red of redList; let id_red = index">
     <div class="d-flex me-2">
       <a [href]="red.link_red"><i [class]="'bi-'+ red.nombre_red"></i></a>
-      <div class="btn-group-vertical">
+      <div class="btn-group-vertical" *ngIf="isAdmin">
         <button type="button" (click)="editarRed(red.id_red)" class="boton-1 bi-pencil-fill me-2"></button>
         <button type="button" (click)="eliminarRed(red.id_red)" class="boton-1 bi-x-circle-fill"></button>
       </div>
@@ -27,6 +27,7 @@
               <select class="form-select form-select-sm" 
               id="nombre_red" name="nombre_red" [(ngModel)]="red.nombre_red" #nombre_red="ngModel">
                 <option selected></option>
+                <option value="discord">Discord</option>
                 <option value="facebook">Facebook</option>
                 <option value="github">Github</option>
                 <option value="google">Google</option>

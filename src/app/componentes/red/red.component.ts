@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Red } from 'src/app/modelos/Red';
-import { PortfolioapService } from 'src/app/servicios/portfolioap.service';
 import { RedapService } from 'src/app/servicios/redap.service';
+import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
   selector: 'app-red',
@@ -12,11 +12,19 @@ import { RedapService } from 'src/app/servicios/redap.service';
 export class RedComponent implements OnInit {
   redList: Red[] = [];
   red:Red = new Red();
-  constructor(private datosRed:RedapService, private router:Router) {
+  roles: string[];
+  isAdmin = false;
+  constructor(private datosRed:RedapService, private router:Router, private tokenService:TokenService) {
    }
 
   ngOnInit(): void {
     this.obtenerRed();
+    this.roles = this.tokenService.getAuthorities();
+    this.roles.forEach(rol => {
+      if (rol === 'ROLE_ADMIN') {
+        this.isAdmin = true;
+      }
+    });
   }
   private obtenerRed(){
   this.datosRed.obtenerRed().subscribe(data =>{
