@@ -5,16 +5,26 @@
         <button type="button" class="btn-close" (click)="volver()"></button>
       </div>
       <div class="modal-body">
-        <form (ngSubmit)="onSubmit()" #habilidadEForm="ngForm">
+        <form (ngSubmit)="onSubmit()" [formGroup]="habilidadForm">
           <div class="mb-2">
             <label for="skill" class="form-label">Habilidad</label>
             <input type="text" class="form-control form-control-sm" required
-            id="skill" name="skill" [(ngModel)]="habilidad.skill" #skill="ngModel">
+            id="skill" name="skill" [(ngModel)]="habilidad.skill" formControlName="skill">
+            <div *ngIf="Skill?.errors && Skill?.touched">
+              <p *ngIf="Skill?.hasError('required')" class="text-danger">
+                Campo obligatorio
+              </p>
+            </div>
           </div>
           <div class="mb-2">
             <label for="nivel" class="form-label">Nivel</label>
             <input type="number" class="form-control form-control-sm" min="0" max="100" step="5"
-            id="nivel" name="nivel" [(ngModel)]="habilidad.nivel" #nivel="ngModel">
+            id="nivel" name="nivel" [(ngModel)]="habilidad.nivel" formControlName="nivel">
+            <div *ngIf="Nivel?.errors && Nivel?.touched">
+              <p *ngIf="Nivel?.hasError('required')" class="text-danger">
+                Campo obligatorio
+              </p>
+            </div>
           </div>
           <button type="submit" class="btn btn-info mt-2 me-2">Guardar cambios</button>
           <button type="button" class="btn mt-2" (click)="volver()">Cancelar</button>

@@ -1,7 +1,7 @@
 <div class="seccion container-lg">
     <div class="seccion-titulo">
       <button type="button" *ngIf="isAdmin" class="boton-1 boton-2 bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#crearExperiencia"></button>
-      <h2>Experiencia</h2></div>
+      <h2>Experiencia laboral</h2></div>
     <ul>
     <li *ngFor="let experiencia of experienciaList; let id_ex = index">
       <div class="d-flex align-items-center p-3">
@@ -29,16 +29,26 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form (ngSubmit)="onSubmit()" #experienciaForm="ngForm">
+          <form (ngSubmit)="onSubmit()" [formGroup]="experienciaForm">
             <div class="mb-2">
               <label for="trabajo" class="form-label">Trabajo</label>
-              <input type="text" required class="form-control form-control-sm" 
-              id="trabajo" name="trabajo" [(ngModel)]="experiencia.trabajo" #trabajo="ngModel">
+              <input type="text" class="form-control form-control-sm" required
+              id="trabajo" name="trabajo" [(ngModel)]="experiencia.trabajo" formControlName="trabajo">
+              <div *ngIf="Trabajo?.errors && Trabajo?.touched">
+                <p *ngIf="Trabajo?.hasError('required')" class="text-danger">
+                  Campo obligatorio
+                </p>
+              </div>
             </div>
             <div class="mb-2">
               <label for="empresa_n" class="form-label">Empresa</label>
-              <input type="text" required class="form-control form-control-sm" 
-              id="empresa_n" name="empresa_n" [(ngModel)]="experiencia.empresa_n" #empresa_n="ngModel">
+              <input type="text" class="form-control form-control-sm" required
+              id="empresa_n" name="empresa_n" [(ngModel)]="experiencia.empresa_n" formControlName="empresa_n">
+              <div *ngIf="Empresa?.errors && Empresa?.touched">
+                <p *ngIf="Empresa?.hasError('required')" class="text-danger">
+                  Campo obligatorio
+                </p>
+              </div>
             </div>
             <div class="mb-2">
               <label for="empresa_l" class="form-label">Logo de la empresa</label>
@@ -47,8 +57,13 @@
             </div>
             <div class="mb-2">
               <label for="inicio_ex" class="form-label">Fecha de inicio</label>
-              <input type="date" required class="form-control form-control-sm" 
-              id="inicio_ex" name="inicio_ex" [(ngModel)]="experiencia.inicio_ex" #inicio_ex="ngModel">
+              <input type="date" class="form-control form-control-sm" required
+              id="inicio_ex" name="inicio_ex" [(ngModel)]="experiencia.inicio_ex" formControlName="inicio_ex">
+              <div *ngIf="Inicio?.errors && Inicio?.touched">
+                <p *ngIf="Inicio?.hasError('required')" class="text-danger">
+                  Campo obligatorio
+                </p>
+              </div>
             </div>
             <div class="mb-2">
               <label for="fin_ex" class="form-label">Fecha de finalización</label>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginUsuario } from 'src/app/modelos/LoginUsuario';
 import { AuthService } from 'src/app/servicios/auth.service';
@@ -19,12 +20,21 @@ export class LoginComponent implements OnInit {
   password: string;
   roles: string[] = [];
   errMsj: string;
+  loginForm:FormGroup;
 
   constructor(
     private tokenService: TokenService,
     private authService: AuthService,
-    private router: Router
-  ) { }
+    private router: Router,
+    private formBuilder:FormBuilder
+  ) {
+    this.loginForm = this.formBuilder.group(
+      {
+        username:['',[Validators.required]],
+        password:['',[Validators.required]]
+      }
+    )
+   }
 
   ngOnInit() {
     if (this.tokenService.getToken()) {
@@ -39,7 +49,6 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.loginUsuario).subscribe(
       data => {
         this.isLogged = true;
-
         this.tokenService.setToken(data.token);
         this.tokenService.setUserName(data.username);
         this.tokenService.setAuthorities(data.authorities);
@@ -48,7 +57,7 @@ export class LoginComponent implements OnInit {
       },
       err => {
         this.isLogged = false;
-        this.errMsj = err.error.message;
+        this.errMsj = "Usuario o contraseña incorrectos"
         console.log(err.error.message);
       }
     );
@@ -58,5 +67,11 @@ export class LoginComponent implements OnInit {
   }
   cancelar(){
     this.router.navigate(['']);
+  }
+  get Username() {
+    return this.loginForm.get('username');
+  }
+  get Password() {
+    return this.loginForm.get('password');
   }
 }

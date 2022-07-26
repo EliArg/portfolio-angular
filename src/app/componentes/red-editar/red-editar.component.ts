@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RedapService } from 'src/app/servicios/redap.service';
 
@@ -8,9 +9,24 @@ import { RedapService } from 'src/app/servicios/redap.service';
   styleUrls: ['./red-editar.component.css']
 })
 export class RedEditarComponent implements OnInit {
+  
   id_red:number;
   red:any;
-  constructor(private datosRed:RedapService, private router:Router, private route:ActivatedRoute) { }
+  redForm:FormGroup;
+  
+  constructor(
+    private datosRed:RedapService, 
+    private router:Router, 
+    private route:ActivatedRoute,
+    private formBuilder:FormBuilder
+    ) {
+      this.redForm = this.formBuilder.group(
+        {
+          nombre_red:['',[Validators.required]],
+          link_red:['',[Validators.required]]
+        }
+      )
+    }
 
   ngOnInit(): void {
     this.id_red = this.route.snapshot.params['id_red'];
@@ -25,5 +41,11 @@ export class RedEditarComponent implements OnInit {
   }
   volver(){
     this.router.navigate(['/portfolio']);
+  }
+  get Red() {
+    return this.redForm.get('nombre_red');
+  }
+  get Link() {
+    return this.redForm.get('link_red');
   }
 }

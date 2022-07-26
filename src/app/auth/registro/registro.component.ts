@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NuevoUsuario } from 'src/app/modelos/NuevoUsuario';
 import { AuthService } from 'src/app/servicios/auth.service';
@@ -19,12 +20,22 @@ export class RegistroComponent implements OnInit {
   password: string;
   errMsj: string;
   isLogged = false;
+  registerForm:FormGroup;
 
   constructor(
     private tokenService: TokenService,
     private authService: AuthService,
-    private router: Router
-  ) { }
+    private router: Router,
+    private formBuilder:FormBuilder
+  ) {
+    this.registerForm = this.formBuilder.group(
+      {
+        username:['',[Validators.required]],
+        email:['',[Validators.required, Validators.email]],
+        password:['',[Validators.required]]
+      }
+    )
+   }
 
   ngOnInit() {
     if (this.tokenService.getToken()) {
@@ -49,5 +60,14 @@ export class RegistroComponent implements OnInit {
   }
   cancelar(){
     this.router.navigate(['']);
+  }
+  get Username() {
+    return this.registerForm.get('username');
+  }
+  get Email() {
+    return this.registerForm.get('email');
+  }
+  get Password() {
+    return this.registerForm.get('password');
   }
 }

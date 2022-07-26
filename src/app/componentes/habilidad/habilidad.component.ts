@@ -3,6 +3,7 @@ import { Habilidad } from 'src/app/modelos/Habilidad';
 import { HabilidadapService } from 'src/app/servicios/habilidadap.service';
 import { Router } from '@angular/router';
 import { TokenService } from 'src/app/servicios/token.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-habilidad',
@@ -10,12 +11,26 @@ import { TokenService } from 'src/app/servicios/token.service';
   styleUrls: ['./habilidad.component.css']
 })
 export class HabilidadComponent implements OnInit {
+  
   habilidadList: Habilidad[] = [];
   habilidad:Habilidad = new Habilidad();
   roles: string[];
   isAdmin = false;
-  constructor(private datosHabilidad:HabilidadapService, private router:Router, private tokenService:TokenService) {
-   }
+  habilidadForm:FormGroup;
+
+  constructor(
+    private datosHabilidad:HabilidadapService, 
+    private router:Router, 
+    private tokenService:TokenService,
+    private formBuilder:FormBuilder
+    ) {
+      this.habilidadForm = this.formBuilder.group(
+        {
+          skill:['',[Validators.required]],
+          nivel:['',[Validators.required]]
+        }
+      )
+    }
 
   ngOnInit(): void {
     this.obtenerHabilidad();
@@ -47,4 +62,10 @@ export class HabilidadComponent implements OnInit {
   onSubmit(){
     this.crearHabilidad();
   }  
+  get Skill() {
+    return this.habilidadForm.get('skill');
+  }
+  get Nivel() {
+    return this.habilidadForm.get('nivel');
+  }
 }

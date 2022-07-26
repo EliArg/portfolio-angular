@@ -28,21 +28,36 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form (ngSubmit)="onSubmit()" #informacionForm="ngForm">
+        <form (ngSubmit)="onSubmit()" [formGroup]="informacionForm">
         <div class="mb-2">
           <label for="nombre" class="form-label">Nombre</label>
-          <input type="text" class="form-control form-control-sm" 
-          id="nombre" name="nombre" [(ngModel)]="informacion.nombre" #nombre="ngModel">
+          <input type="text" class="form-control form-control-sm" required
+          id="nombre" name="nombre" [(ngModel)]="informacion.nombre" formControlName="nombre">
+          <div *ngIf="Nombre?.errors && Nombre?.touched">
+            <p *ngIf="Nombre?.hasError('required')" class="text-danger">
+              Campo obligatorio
+            </p>
+          </div>
         </div>
         <div class="mb-2">
           <label for="titulo" class="form-label">Título</label>
-          <input type="text" class="form-control form-control-sm" 
-          id="titulo" name="titulo" [(ngModel)]="informacion.titulo" #titulo="ngModel">
+          <input type="text" class="form-control form-control-sm" required
+          id="titulo" name="titulo" [(ngModel)]="informacion.titulo" formControlName="titulo">
+          <div *ngIf="Titulo?.errors && Titulo?.touched">
+            <p *ngIf="Titulo?.hasError('required')" class="text-danger">
+              Campo obligatorio
+            </p>
+          </div>
         </div>
         <div class="mb-2">
           <label for="email" class="form-label">Email</label>
           <input type="email" class="form-control form-control-sm" 
-          id="email" name="email" [(ngModel)]="informacion.email" #email="ngModel">
+          id="email" name="email" [(ngModel)]="informacion.email" formControlName="email">
+          <div *ngIf="Email?.errors && Email?.touched">
+            <p *ngIf="Email?.hasError('email')" class="text-danger">
+              El formato del email debe ser válido
+            </p>
+          </div>
         </div>
         <div class="mb-2">
           <label for="banner" class="form-label">Banner</label>

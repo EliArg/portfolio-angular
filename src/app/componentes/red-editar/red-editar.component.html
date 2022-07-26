@@ -5,11 +5,11 @@
         <button type="button" class="btn-close" (click)="volver()"></button>
       </div>
       <div class="modal-body">
-        <form (ngSubmit)="onSubmit()" #redForm="ngForm">
+        <form (ngSubmit)="onSubmit()" [formGroup]="redForm">
           <div class="mb-2">
             <label for="nombre_red" class="form-label">Nombre</label>
-            <select class="form-select form-select-sm" 
-            id="nombre_red" name="nombre_red" [(ngModel)]="red.nombre_red" #nombre_red="ngModel">
+            <select class="form-select form-select-sm" required
+            id="nombre_red" name="nombre_red" [(ngModel)]="red.nombre_red" formControlName="nombre_red">
               <option selected></option>
               <option value="discord">Discord</option>
               <option value="facebook">Facebook</option>
@@ -20,11 +20,21 @@
               <option value="stack-overflow">Stack Overflow</option>
               <option value="twitter">Twitter</option>
             </select>
+            <div *ngIf="Red?.errors && Red?.touched">
+              <p *ngIf="Red?.hasError('required')" class="text-danger">
+                Campo obligatorio
+              </p>
+            </div>
           </div>
           <div class="mb-2">
             <label for="link_red" class="form-label">Link</label>
-            <input type="text" class="form-control form-control-sm" 
-            id="link_red" name="link_red" [(ngModel)]="red.link_red" #link_red="ngModel">
+            <input type="text" class="form-control form-control-sm" required
+            id="link_red" name="link_red" [(ngModel)]="red.link_red" formControlName="link_red">
+            <div *ngIf="Link?.errors && Link?.touched">
+              <p *ngIf="Link?.hasError('required')" class="text-danger">
+                Campo obligatorio
+              </p>
+            </div>
           </div>
           <button type="submit" class="btn btn-info mt-2 me-2">Guardar cambios</button>
           <button type="button" class="btn mt-2" (click)="volver()">Cancelar</button>

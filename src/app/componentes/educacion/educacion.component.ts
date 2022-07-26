@@ -3,18 +3,35 @@ import { Educacion } from 'src/app/modelos/Educacion';
 import { EducacionapService } from 'src/app/servicios/educacionap.service';
 import { Router } from '@angular/router';
 import { TokenService } from 'src/app/servicios/token.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-educacion',
   templateUrl: './educacion.component.html',
   styleUrls: ['./educacion.component.css']
 })
 export class EducacionComponent implements OnInit {
-
-  constructor(private datosEducacion:EducacionapService, private router:Router, private tokenService:TokenService) { }
+  
   educacionList:Educacion[]=[];
   educacion:Educacion = new Educacion();
   roles: string[];
   isAdmin = false;
+  educacionForm:FormGroup;
+  
+  constructor(
+    private datosEducacion:EducacionapService, 
+    private router:Router, 
+    private tokenService:TokenService, 
+    private formBuilder:FormBuilder
+    ) {
+      this.educacionForm = this.formBuilder.group(
+        {
+          curso:['',[Validators.required]],
+          institucion_n:['',[Validators.required]],
+          inicio_ed:['',[Validators.required]]
+        }
+      )
+     }
+  
   ngOnInit(): void {
     this.obtenerEducacion();
     this.roles = this.tokenService.getAuthorities();
@@ -45,5 +62,14 @@ export class EducacionComponent implements OnInit {
     onSubmit(){
       this.crearEducacion();
     }  
+    get Curso() {
+      return this.educacionForm.get('curso');
+    }
+    get Institucion() {
+      return this.educacionForm.get('institucion_n');
+    }
+    get Inicio() {
+      return this.educacionForm.get('inicio_ed');
+    }
   }
   

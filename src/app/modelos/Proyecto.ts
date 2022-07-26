@@ -4,5 +4,5 @@ export class Proyecto {
     fin_pr: string;
     descripcion_pr?: string;
     link?: string;
-    fuente: string;
+    repositorio: string;
 }

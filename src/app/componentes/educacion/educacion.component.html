@@ -28,16 +28,26 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form (ngSubmit)="onSubmit()" #educacionForm="ngForm">
+        <form (ngSubmit)="onSubmit()" [formGroup]="educacionForm">
           <div class="mb-2">
             <label for="curso" class="form-label">Curso</label>
             <input type="text" class="form-control form-control-sm" required
-            id="curso" name="curso" [(ngModel)]="educacion.curso" #curso="ngModel">
+            id="curso" name="curso" [(ngModel)]="educacion.curso" formControlName="curso">
+            <div *ngIf="Curso?.errors && Curso?.touched">
+              <p *ngIf="Curso?.hasError('required')" class="text-danger">
+                Campo obligatorio
+              </p>
+            </div>
           </div>
           <div class="mb-2">
             <label for="institucion_n" class="form-label">Institución</label>
-            <input type="text" class="form-control form-control-sm" 
-            id="institucion_n" name="institucion_n" [(ngModel)]="educacion.institucion_n" #institucion_n="ngModel">
+            <input type="text" class="form-control form-control-sm" required
+            id="institucion_n" name="institucion_n" [(ngModel)]="educacion.institucion_n" formControlName="institucion_n">
+            <div *ngIf="Institucion?.errors && Institucion?.touched">
+              <p *ngIf="Institucion?.hasError('required')" class="text-danger">
+                Campo obligatorio
+              </p>
+            </div>
           </div>
           <div class="mb-2">
             <label for="institucion_l" class="form-label">Logo de la institución</label>
@@ -46,8 +56,13 @@
           </div>
           <div class="mb-2">
             <label for="inicio_ed" class="form-label">Fecha de inicio</label>
-            <input type="date" class="form-control form-control-sm" 
-            id="inicio_ed" name="inicio_ed" [(ngModel)]="educacion.inicio_ed" #inicio_ed="ngModel">
+            <input type="date" class="form-control form-control-sm" required
+            id="inicio_ed" name="inicio_ed" [(ngModel)]="educacion.inicio_ed" formControlName="inicio_ed">
+            <div *ngIf="Inicio?.errors && Inicio?.touched">
+              <p *ngIf="Inicio?.hasError('required')" class="text-danger">
+                Campo obligatorio
+              </p>
+            </div>
           </div>
           <div class="mb-2">
             <label for="fin_ed" class="form-label">Fecha de finalización</label>

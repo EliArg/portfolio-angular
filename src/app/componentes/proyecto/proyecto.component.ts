@@ -3,6 +3,7 @@ import { Proyecto } from 'src/app/modelos/Proyecto';
 import { ProyectoapService } from 'src/app/servicios/proyectoap.service';
 import { Router } from '@angular/router';
 import { TokenService } from 'src/app/servicios/token.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-proyecto',
@@ -10,12 +11,26 @@ import { TokenService } from 'src/app/servicios/token.service';
   styleUrls: ['./proyecto.component.css']
 })
 export class ProyectoComponent implements OnInit {
+  
   proyectoList: Proyecto[] = [];
   proyecto:Proyecto = new Proyecto();
   roles: string[];
   isAdmin = false;
-  constructor(private datosProyecto:ProyectoapService, private router:Router, private tokenService:TokenService) {
-   }
+  proyectoForm:FormGroup;
+
+  constructor(
+    private datosProyecto:ProyectoapService, 
+    private router:Router, 
+    private tokenService:TokenService,
+    private formBuilder:FormBuilder
+  ) {
+    this.proyectoForm = this.formBuilder.group(
+      {
+        nombre_pr:['',[Validators.required]],
+        repositorio:['',[Validators.required]]
+      }
+    )
+  }
 
   ngOnInit(): void {
     this.obtenerProyecto();
@@ -46,5 +61,11 @@ export class ProyectoComponent implements OnInit {
   }
   onSubmit(){
     this.crearProyecto();
+  }
+  get Nombre() {
+    return this.proyectoForm.get('nombre_pr');
+  }
+  get Repositorio() {
+    return this.proyectoForm.get('repositorio');
   }  
 }
