@@ -7,7 +7,7 @@ import { Experiencia } from '../modelos/Experiencia';
   providedIn: 'root'
 })
 export class ExperienciaapService {
-  private baseURL = 'http://localhost:8080/experiencia';
+  private baseURL = 'https://apback-eliarg.herokuapp.com/experiencia';
   constructor(private httpClient:HttpClient) { }
   obtenerExperiencia():Observable<Experiencia[]>{
     return this.httpClient.get<Experiencia[]>(`${this.baseURL}`)

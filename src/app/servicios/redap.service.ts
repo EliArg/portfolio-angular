@@ -7,7 +7,7 @@ import { Red } from '../modelos/Red';
   providedIn: 'root'
 })
 export class RedapService {
-  private baseURL = 'http://localhost:8080/red';
+  private baseURL = 'https://apback-eliarg.herokuapp.com/red';
   constructor(private httpClient:HttpClient) { }
   obtenerRed():Observable<Red[]>{
     return this.httpClient.get<Red[]>(`${this.baseURL}`)

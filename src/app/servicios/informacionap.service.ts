@@ -7,7 +7,7 @@ import { Informacion } from '../modelos/Informacion';
   providedIn: 'root'
 })
 export class InformacionapService {
-  private baseURL = 'http://localhost:8080/informacion';
+  private baseURL = 'https://apback-eliarg.herokuapp.com/informacion';
   constructor(private httpClient:HttpClient) { }
   obtenerInformacion():Observable<Informacion[]>{
     return this.httpClient.get<Informacion[]>(`${this.baseURL}`)

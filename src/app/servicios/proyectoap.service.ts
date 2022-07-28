@@ -7,7 +7,7 @@ import { Proyecto } from '../modelos/Proyecto';
   providedIn: 'root'
 })
 export class ProyectoapService {
-  private baseURL = 'http://localhost:8080/proyecto';
+  private baseURL = 'https://apback-eliarg.herokuapp.com/proyecto';
   constructor(private httpClient:HttpClient) { }
   obtenerProyecto():Observable<Proyecto[]>{
     return this.httpClient.get<Proyecto[]>(`${this.baseURL}`)

@@ -7,7 +7,7 @@ import { Habilidad } from '../modelos/Habilidad';
   providedIn: 'root'
 })
 export class HabilidadapService {
-  private baseURL = 'http://localhost:8080/habilidad';
+  private baseURL = 'https://apback-eliarg.herokuapp.com/habilidad';
   constructor(private httpClient:HttpClient) { }
   obtenerHabilidad():Observable<Habilidad[]>{
     return this.httpClient.get<Habilidad[]>(`${this.baseURL}`)
