@@ -25,28 +25,18 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form (ngSubmit)="onSubmit()" [formGroup]="habilidadForm">
+        <form (ngSubmit)="onSubmit()" #habilidadForm="ngForm">
           <div class="mb-2">
             <label for="skill" class="form-label">Habilidad</label>
             <input type="text" class="form-control form-control-sm" required
-            id="skill" name="skill" [(ngModel)]="habilidad.skill" formControlName="skill">
-            <div *ngIf="Skill?.errors && Skill?.touched">
-              <p *ngIf="Skill?.hasError('required')" class="text-danger">
-                Campo obligatorio
-              </p>
-            </div>
+            id="skill" name="skill" [(ngModel)]="habilidad.skill" #skill="ngModel">
           </div>
           <div class="mb-2">
             <label for="nivel" class="form-label">Nivel</label>
             <input type="number" class="form-control form-control-sm" min="0" max="100" step="5"
-            id="nivel" name="nivel" [(ngModel)]="habilidad.nivel" formControlName="nivel">
-            <div *ngIf="Nivel?.errors && Nivel?.touched">
-              <p *ngIf="Nivel?.hasError('required')" class="text-danger">
-                Campo obligatorio
-              </p>
-            </div>
+            id="nivel" name="nivel" [(ngModel)]="habilidad.nivel" #nivel="ngModel">
           </div>
-          <button type="submit" class="btn btn-info mt-2 me-2">Crear</button>
+          <button type="submit" class="btn btn-info mt-2 me-2" [disabled]="!habilidadForm.valid">Crear</button>
           <button type="button" class="btn mt-2" data-bs-dismiss="modal">Cancelar</button>
         </form>
       </div>

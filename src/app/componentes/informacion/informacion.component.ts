@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Informacion } from 'src/app/modelos/Informacion';
 import { InformacionapService } from 'src/app/servicios/informacionap.service';
@@ -16,22 +15,11 @@ export class InformacionComponent implements OnInit {
   informacion:Informacion = new Informacion();
   roles: string[];
   isAdmin = false;
-  informacionForm:FormGroup;
   
   constructor(
     private datosInformacion:InformacionapService, 
     private router:Router, 
-    private tokenService:TokenService,
-    private formBuilder:FormBuilder
-  ) {
-    this.informacionForm = this.formBuilder.group(
-      {
-        nombre:['',[Validators.required]],
-        titulo:['',[Validators.required]],
-        email:['',[Validators.email]]
-      }
-    )
-  }
+    private tokenService:TokenService){}
 
   ngOnInit(): void {
     this.obtenerInformacion();
@@ -63,13 +51,4 @@ export class InformacionComponent implements OnInit {
   onSubmit(){
     this.crearInformacion();
   }  
-  get Nombre() {
-    return this.informacionForm.get('nombre');
-  }
-  get Titulo() {
-    return this.informacionForm.get('titulo');
-  }
-  get Email() {
-    return this.informacionForm.get('email');
-  }
 }

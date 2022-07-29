@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Red } from 'src/app/modelos/Red';
 import { RedapService } from 'src/app/servicios/redap.service';
@@ -16,21 +15,11 @@ export class RedComponent implements OnInit {
   red:Red = new Red();
   roles: string[];
   isAdmin = false;
-  redForm:FormGroup;
 
   constructor(
     private datosRed:RedapService, 
     private router:Router, 
-    private tokenService:TokenService,
-    private formBuilder:FormBuilder
-    ) {
-      this.redForm = this.formBuilder.group(
-        {
-          nombre_red:['',[Validators.required]],
-          link_red:['',[Validators.required]]
-        }
-      )
-    }
+    private tokenService:TokenService){}
 
   ngOnInit(): void {
     this.obtenerRed();
@@ -61,11 +50,5 @@ export class RedComponent implements OnInit {
   }
   onSubmit(){
     this.crearRed();
-  }  
-  get Red() {
-    return this.redForm.get('nombre_red');
-  }
-  get Link() {
-    return this.redForm.get('link_red');
-  }
+  } 
 }

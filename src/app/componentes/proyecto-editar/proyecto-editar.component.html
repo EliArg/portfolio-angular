@@ -5,16 +5,11 @@
         <button type="button" class="btn-close" (click)="volver()"></button>
       </div>
       <div class="modal-body">
-        <form (ngSubmit)="onSubmit()" [formGroup]="proyectoForm">
+        <form (ngSubmit)="onSubmit()" #proyectoForm="ngForm">
           <div class="mb-2">
             <label for="nombre_pr" class="form-label">Nombre</label>
             <input type="text" class="form-control form-control-sm" required
-            id="nombre_pr" name="nombre_pr" [(ngModel)]="proyecto.nombre_pr" formControlName="nombre_pr">
-            <div *ngIf="Nombre?.errors && Nombre?.touched">
-              <p *ngIf="Nombre?.hasError('required')" class="text-danger">
-                Campo obligatorio
-              </p>
-            </div>
+            id="nombre_pr" name="nombre_pr" [(ngModel)]="proyecto.nombre_pr" #nombre_pr="ngModel">
           </div>
           <div class="mb-2">
             <label for="fin_pr" class="form-label">Fecha de finalización</label>
@@ -34,14 +29,9 @@
           <div class="mb-2">
             <label for="repositorio" class="form-label">Repositorio</label>
             <input type="text" class="form-control form-control-sm" required
-            id="repositorio" name="repositorio" [(ngModel)]="proyecto.repositorio" formControlName="repositorio">
-            <div *ngIf="Repositorio?.errors && Repositorio?.touched">
-              <p *ngIf="Repositorio?.hasError('required')" class="text-danger">
-                Campo obligatorio
-              </p>
-            </div>
+            id="repositorio" name="repositorio" [(ngModel)]="proyecto.repositorio" #repositorio="ngModel">
           </div>
-          <button type="submit" class="btn btn-info mt-2 me-2">Guardar cambios</button>
+          <button type="submit" class="btn btn-info mt-2 me-2" [disabled]="!proyectoForm.valid">Guardar cambios</button>
           <button type="button" class="btn mt-2" (click)="volver()">Cancelar</button>
         </form>
       </div>

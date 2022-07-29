@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProyectoapService } from 'src/app/servicios/proyectoap.service';
 
@@ -12,21 +11,11 @@ export class ProyectoEditarComponent implements OnInit {
   
   id_pr:number;
   proyecto:any;
-  proyectoForm:FormGroup;
 
   constructor(
     private datosProyecto:ProyectoapService, 
     private router:Router, 
-    private route:ActivatedRoute,
-    private formBuilder:FormBuilder
-  ) {
-    this.proyectoForm = this.formBuilder.group(
-      {
-        nombre_pr:['',[Validators.required]],
-        repositorio:['',[Validators.required]]
-      }
-    )
-  }
+    private route:ActivatedRoute){}
 
   ngOnInit(): void {
     this.id_pr = this.route.snapshot.params['id_pr'];
@@ -42,10 +31,4 @@ export class ProyectoEditarComponent implements OnInit {
   volver(){
     this.router.navigate(['/portfolio']);
   }
-  get Nombre() {
-    return this.proyectoForm.get('nombre_pr');
-  }
-  get Repositorio() {
-    return this.proyectoForm.get('repositorio');
-  }  
 }

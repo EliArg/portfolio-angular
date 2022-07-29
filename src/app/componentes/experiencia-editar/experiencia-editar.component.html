@@ -5,26 +5,16 @@
         <button type="button" class="btn-close" (click)="volver()"></button>
       </div>
       <div class="modal-body">
-        <form (ngSubmit)="onSubmit()" [formGroup]="experienciaForm">
+        <form (ngSubmit)="onSubmit()" #experienciaForm="ngForm">
           <div class="mb-2">
             <label for="trabajo" class="form-label">Trabajo</label>
             <input type="text" class="form-control form-control-sm" required
-            id="trabajo" name="trabajo" [(ngModel)]="experiencia.trabajo" formControlName="trabajo">
-            <div *ngIf="Trabajo?.errors && Trabajo?.touched">
-              <p *ngIf="Trabajo?.hasError('required')" class="text-danger">
-                Campo obligatorio
-              </p>
-            </div>
+            id="trabajo" name="trabajo" [(ngModel)]="experiencia.trabajo" #trabajo="ngModel">
           </div>
           <div class="mb-2">
             <label for="empresa_n" class="form-label">Empresa</label>
             <input type="text" class="form-control form-control-sm" required
-            id="empresa_n" name="empresa_n" [(ngModel)]="experiencia.empresa_n" formControlName="empresa_n">
-            <div *ngIf="Empresa?.errors && Empresa?.touched">
-              <p *ngIf="Empresa?.hasError('required')" class="text-danger">
-                Campo obligatorio
-              </p>
-            </div>
+            id="empresa_n" name="empresa_n" [(ngModel)]="experiencia.empresa_n" #empresa_n="ngModel">
           </div>
           <div class="mb-2">
             <label for="empresa_l" class="form-label">Logo de la empresa</label>
@@ -34,12 +24,7 @@
           <div class="mb-2">
             <label for="inicio_ex" class="form-label">Fecha de inicio</label>
             <input type="date" class="form-control form-control-sm" required
-            id="inicio_ex" name="inicio_ex" [(ngModel)]="experiencia.inicio_ex" formControlName="inicio_ex">
-            <div *ngIf="Inicio?.errors && Inicio?.touched">
-              <p *ngIf="Inicio?.hasError('required')" class="text-danger">
-                Campo obligatorio
-              </p>
-            </div>
+            id="inicio_ex" name="inicio_ex" [(ngModel)]="experiencia.inicio_ex" #inicio_ex="ngModel">
           </div>
           <div class="mb-2">
             <label for="fin_ex" class="form-label">Fecha de finalización</label>
@@ -51,7 +36,7 @@
             <textarea type="text" class="form-control form-control-sm" rows="3" 
             id="descripcion_ex" name="descripcion_ex" [(ngModel)]="experiencia.descripcion_ex" #descripcion_ex="ngModel"></textarea>
           </div>
-          <button type="submit" class="btn btn-info mt-2 me-2">Guardar cambios</button>
+          <button type="submit" class="btn btn-info mt-2 me-2"[disabled]="!experienciaForm.valid">Guardar cambios</button>
           <button type="button" class="btn mt-2" (click)="volver()">Cancelar</button>
         </form>
       </div>

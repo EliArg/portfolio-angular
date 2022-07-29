@@ -21,11 +21,11 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form (ngSubmit)="onSubmit()" [formGroup]="redForm">
+          <form (ngSubmit)="onSubmit()" #redForm="ngForm">
             <div class="mb-2">
               <label for="nombre_red" class="form-label">Nombre</label>
               <select class="form-select form-select-sm" required
-              id="nombre_red" name="nombre_red" [(ngModel)]="red.nombre_red" formControlName="nombre_red">
+              id="nombre_red" name="nombre_red" [(ngModel)]="red.nombre_red" #nombre_red="ngModel">
                 <option selected></option>
                 <option value="discord">Discord</option>
                 <option value="facebook">Facebook</option>
@@ -36,23 +36,13 @@
                 <option value="stack-overflow">Stack Overflow</option>
                 <option value="twitter">Twitter</option>
               </select>
-              <div *ngIf="Red?.errors && Red?.touched">
-                <p *ngIf="Red?.hasError('required')" class="text-danger">
-                  Campo obligatorio
-                </p>
-              </div>
             </div>
             <div class="mb-2">
               <label for="link_red" class="form-label">Link</label>
               <input type="text" class="form-control form-control-sm" required
-              id="link_red" name="link_red" [(ngModel)]="red.link_red" formControlName="link_red">
-              <div *ngIf="Link?.errors && Link?.touched">
-                <p *ngIf="Link?.hasError('required')" class="text-danger">
-                  Campo obligatorio
-                </p>
-              </div>
+              id="link_red" name="link_red" [(ngModel)]="red.link_red" #link_red="ngModel">
             </div>
-            <button type="submit" class="btn btn-info mt-2 me-2">Crear</button>
+            <button type="submit" class="btn btn-info mt-2 me-2" [disabled]="!redForm.valid">Crear</button>
             <button type="button" class="btn mt-2" data-bs-dismiss="modal">Cancelar</button>
           </form>
         </div>

@@ -1,0 +1,95 @@
+[debug] [2022-07-29T19:25:01.279Z] ----------------------------------------------------------------------
+[debug] [2022-07-29T19:25:01.282Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Admin\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-07-29T19:25:01.282Z] CLI Version:   11.4.0
+[debug] [2022-07-29T19:25:01.282Z] Platform:      win32
+[debug] [2022-07-29T19:25:01.283Z] Node Version:  v16.14.0
+[debug] [2022-07-29T19:25:01.284Z] Time:          Fri Jul 29 2022 16:25:01 GMT-0300 (hora estándar de Argentina)
+[debug] [2022-07-29T19:25:01.284Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-07-29T19:25:01.356Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-07-29T19:25:01.357Z] > authorizing via signed-in user (iaraies1707@hotmail.com)
+[debug] [2022-07-29T19:25:01.357Z] [iam] checking project portfolio-eliarg for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-07-29T19:25:01.359Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/portfolio-eliarg:testIamPermissions [none]
+[debug] [2022-07-29T19:25:01.359Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/portfolio-eliarg:testIamPermissions x-goog-quota-user=projects/portfolio-eliarg
+[debug] [2022-07-29T19:25:01.359Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/portfolio-eliarg:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-07-29T19:25:02.253Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/portfolio-eliarg:testIamPermissions 200
+[debug] [2022-07-29T19:25:02.253Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/portfolio-eliarg:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-07-29T19:25:02.256Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/portfolio-eliarg [none]
+[debug] [2022-07-29T19:25:02.640Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/portfolio-eliarg 200
+[debug] [2022-07-29T19:25:02.640Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/portfolio-eliarg {"projectId":"portfolio-eliarg","projectNumber":"132947970635","displayName":"portfolio-eliarg2","name":"projects/portfolio-eliarg","resources":{"hostingSite":"portfolio-eliarg","storageBucket":"portfolio-eliarg.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_2cee0425-03e5-4357-9ab9-83dceb1a556e"}
+[info] 
+[info] === Deploying to 'portfolio-eliarg'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2022-07-29T19:25:02.645Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/portfolio-eliarg [none]
+[debug] [2022-07-29T19:25:03.001Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/portfolio-eliarg 200
+[debug] [2022-07-29T19:25:03.002Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/portfolio-eliarg {"projectId":"portfolio-eliarg","projectNumber":"132947970635","displayName":"portfolio-eliarg2","name":"projects/portfolio-eliarg","resources":{"hostingSite":"portfolio-eliarg","storageBucket":"portfolio-eliarg.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_2cee0425-03e5-4357-9ab9-83dceb1a556e"}
+[debug] [2022-07-29T19:25:03.010Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/132947970635/sites/portfolio-eliarg/versions [none]
+[debug] [2022-07-29T19:25:03.010Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/132947970635/sites/portfolio-eliarg/versions {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2022-07-29T19:25:04.379Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/132947970635/sites/portfolio-eliarg/versions 500
+[debug] [2022-07-29T19:25:04.379Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/132947970635/sites/portfolio-eliarg/versions {"error":{"code":500,"message":"Internal error encountered.","status":"INTERNAL"}}
+[error] 
+[error] Error: HTTP Error: 500, Internal error encountered.
+[debug] [2022-07-29T19:25:04.384Z] Error Context: {
+  "body": {
+    "error": {
+      "code": 500,
+      "message": "Internal error encountered.",
+      "status": "INTERNAL"
+    }
+  },
+  "response": {
+    "statusCode": 500
+  }
+}
+[debug] [2022-07-29T19:27:25.829Z] ----------------------------------------------------------------------
+[debug] [2022-07-29T19:27:25.831Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Admin\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2022-07-29T19:27:25.832Z] CLI Version:   11.4.0
+[debug] [2022-07-29T19:27:25.832Z] Platform:      win32
+[debug] [2022-07-29T19:27:25.832Z] Node Version:  v16.14.0
+[debug] [2022-07-29T19:27:25.833Z] Time:          Fri Jul 29 2022 16:27:25 GMT-0300 (hora estándar de Argentina)
+[debug] [2022-07-29T19:27:25.833Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-07-29T19:27:25.894Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-07-29T19:27:25.894Z] > authorizing via signed-in user (iaraies1707@hotmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Git\PortfolioAP\portfolio-angular
+
+Before we get started, keep in mind:
+
+  * You are currently outside your home directory
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2022-07-29T19:27:42.151Z] Using project from CLI flag: portfolio-eliarg
+[debug] [2022-07-29T19:27:42.155Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/portfolio-eliarg [none]
+[debug] [2022-07-29T19:27:42.569Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/portfolio-eliarg 200
+[debug] [2022-07-29T19:27:42.569Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/portfolio-eliarg {"projectId":"portfolio-eliarg","projectNumber":"132947970635","displayName":"portfolio-eliarg2","name":"projects/portfolio-eliarg","resources":{"hostingSite":"portfolio-eliarg","storageBucket":"portfolio-eliarg.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_2cee0425-03e5-4357-9ab9-83dceb1a556e"}
+[info] i  Using project portfolio-eliarg (portfolio-eliarg2) 
+[info] 
+=== Hosting Setup
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
+[debug] [2022-07-29T19:29:12.908Z] Error: kill ENOSYS
+    at process.kill (node:internal/process/per_thread:220:13)
+    at process.listener (C:\Users\Admin\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\signal-exit\index.js:95:15)
+    at process.emit (node:events:520:28)
+[error] 
+[error] Error: An unexpected error has occurred.

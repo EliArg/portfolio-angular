@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { InformacionapService } from 'src/app/servicios/informacionap.service';
 
@@ -12,22 +11,11 @@ export class InformacionEditarComponent implements OnInit {
   
   id:number;
   informacion:any;
-  informacionForm:FormGroup;
 
   constructor(
     private datosInformacion:InformacionapService, 
     private router:Router, 
-    private route:ActivatedRoute,
-    private formBuilder:FormBuilder
-  ) {
-    this.informacionForm = this.formBuilder.group(
-      {
-        nombre:['',[Validators.required]],
-        titulo:['',[Validators.required]],
-        email:['',[Validators.email]]
-      }
-    )
-  }
+    private route:ActivatedRoute){}
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
@@ -42,14 +30,5 @@ export class InformacionEditarComponent implements OnInit {
   }
   volver(){
     this.router.navigate(['/portfolio']);
-  }
-  get Nombre() {
-    return this.informacionForm.get('nombre');
-  }
-  get Titulo() {
-    return this.informacionForm.get('titulo');
-  }
-  get Email() {
-    return this.informacionForm.get('email');
   }
 }

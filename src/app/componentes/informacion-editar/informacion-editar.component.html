@@ -5,36 +5,21 @@
         <button type="button" class="btn-close" (click)="volver()"></button>
       </div>
       <div class="modal-body">
-        <form (ngSubmit)="onSubmit()" [formGroup]="informacionForm">
+        <form (ngSubmit)="onSubmit()" #informacionForm="ngForm">
           <div class="mb-2">
             <label for="nombre" class="form-label">Nombre</label>
             <input type="text" class="form-control form-control-sm" required
-            id="nombre" name="nombre" [(ngModel)]="informacion.nombre" formControlName="nombre">
-            <div *ngIf="Nombre?.errors && Nombre?.touched">
-              <p *ngIf="Nombre?.hasError('required')" class="text-danger">
-                Campo obligatorio
-              </p>
-            </div>
+            id="nombre" name="nombre" [(ngModel)]="informacion.nombre" #nombre="ngModel">
           </div>
           <div class="mb-2">
             <label for="titulo" class="form-label">Título</label>
             <input type="text" class="form-control form-control-sm" required
-            id="titulo" name="titulo" [(ngModel)]="informacion.titulo" formControlName="titulo">
-            <div *ngIf="Titulo?.errors && Titulo?.touched">
-              <p *ngIf="Titulo?.hasError('required')" class="text-danger">
-                Campo obligatorio
-              </p>
-            </div>
+            id="titulo" name="titulo" [(ngModel)]="informacion.titulo" #titulo="ngModel">
           </div>
           <div class="mb-2">
             <label for="email" class="form-label">Email</label>
             <input type="email" class="form-control form-control-sm" 
-            id="email" name="email" [(ngModel)]="informacion.email" formControlName="email">
-            <div *ngIf="Email?.errors && Email?.touched">
-              <p *ngIf="Email?.hasError('email')" class="text-danger">
-                El formato del email debe ser válido
-              </p>
-            </div>
+            id="email" name="email" [(ngModel)]="informacion.email" #email="ngModel">
         </div>
         <div class="mb-2">
           <label for="banner" class="form-label">Banner</label>
@@ -51,7 +36,7 @@
           <textarea type="text" class="form-control form-control-sm" rows="3" 
           id="sobre_mi" name="sobre_mi" [(ngModel)]="informacion.sobre_mi" #sobre_mi="ngModel"></textarea>
         </div>
-        <button type="submit" class="btn btn-info mt-2 me-2">Guardar cambios</button>
+        <button type="submit" class="btn btn-info mt-2 me-2" [disabled]="!informacionForm.valid">Guardar cambios</button>
         <button type="button" class="btn mt-2" (click)="volver()">Cancelar</button>
         </form>
       </div>
